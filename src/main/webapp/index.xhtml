@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/WEB-INF/template/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="titulo">TESTE</ui:define>
+    <ui:define name="corpo">
+        <div class="container">
+            <p:tabMenu activeIndex="#{param.i}">
+                <p:menuitem value="Questões" outcome="/index.xhtml" icon="ui-icon-star">
+                    <f:param name="i" value="0" />
+                </p:menuitem>
+                <p:menuitem value="Questionários" outcome="/index.xhtml" icon="ui-icon-search">
+                    <f:param name="i" value="1" />
+                </p:menuitem>
+                <p:menuitem value="Avaliações" outcome="/index.xhtml" icon="ui-icon-document">
+                    <f:param name="i" value="2" />
+                </p:menuitem>
+                <p:menuitem value="Emails de Abertura" outcome="/index.xhtml" icon="ui-icon-wrench">
+                    <f:param name="i" value="3" />
+                </p:menuitem>
+            </p:tabMenu>
+        </div>
+    </ui:define>    
+</ui:composition>
+
