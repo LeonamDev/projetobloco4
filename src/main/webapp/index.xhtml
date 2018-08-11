@@ -7,23 +7,21 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="titulo">TESTE</ui:define>
-    <ui:define name="corpo">
-        <div class="container">
-            <p:tabMenu activeIndex="#{param.i}">
-                <p:menuitem value="Questões" outcome="/index.xhtml" icon="ui-icon-star">
-                    <f:param name="i" value="0" />
-                </p:menuitem>
-                <p:menuitem value="Questionários" outcome="/index.xhtml" icon="ui-icon-search">
-                    <f:param name="i" value="1" />
-                </p:menuitem>
-                <p:menuitem value="Avaliações" outcome="/index.xhtml" icon="ui-icon-document">
-                    <f:param name="i" value="2" />
-                </p:menuitem>
-                <p:menuitem value="Emails de Abertura" outcome="/index.xhtml" icon="ui-icon-wrench">
-                    <f:param name="i" value="3" />
-                </p:menuitem>
-            </p:tabMenu>
-        </div>
-    </ui:define>    
+    <div class="container">
+        <p:tabMenu activeIndex="#{param.i}">
+            <p:menuitem value="Questões" outcome="/questao/consultaQuestaos.xhtml" icon="ui-icon-star">
+                <f:param name="i" value="0" />
+            </p:menuitem>
+            <p:menuitem value="Questionários" outcome="/index.xhtml" icon="ui-icon-search">
+                <f:param name="i" value="1" />
+            </p:menuitem>
+            <p:menuitem value="Avaliações" outcome="/index.xhtml" icon="ui-icon-document">
+                <f:param name="i" value="2" />
+            </p:menuitem>
+            <p:menuitem value="Emails de Abertura" outcome="/index.xhtml" icon="ui-icon-wrench">
+                <f:param name="i" value="3" />
+            </p:menuitem>
+        </p:tabMenu>
+    </div>  
 </ui:composition>
 

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/WEB-INF/template/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="titulo">TESTE</ui:define>
+    <ui:define name="corpo">
+        <div class="container">
+            <h:form>               
+                <h3>Questão</h3>
+                <p:inputTextarea rows="3" cols="33" />
+                <h:outputText id="display" />
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                    <p:outputLabel for="console" value="Categoria:" />
+                    <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width:125px">
+                        <f:selectItem itemLabel="Selecione" itemValue="" />
+                        <f:selectItem itemLabel="AVALIAÇÃO GERAL" itemValue="1" />
+                        <f:selectItem itemLabel="AVALIACAO PROFESSOR" itemValue="2" />
+                        <f:selectItem itemLabel="AVALIAÇÃO CONTEÚDO E INFRA" itemValue="3" />
+                    </p:selectOneMenu>
+                </h:panelGrid>
+            </h:form>
+        </div>
+    </ui:define>    
+</ui:composition>
+
