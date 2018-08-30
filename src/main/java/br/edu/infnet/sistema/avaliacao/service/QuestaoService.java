@@ -7,7 +7,7 @@ package br.edu.infnet.sistema.avaliacao.service;
 
 /**
  *
- * @author DesenvolvedorJava
+ * @author leonam
  */
 public class QuestaoService {
     
