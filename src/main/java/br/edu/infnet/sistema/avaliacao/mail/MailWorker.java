@@ -10,6 +10,8 @@ package br.edu.infnet.sistema.avaliacao.mail;
  * @author leonam
  */
 import br.edu.infnet.sistema.avaliacao.model.Aluno;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -21,10 +23,13 @@ public class MailWorker {
 
     @Autowired
     private MailService mailService;
-  
-    @Scheduled(fixedRate = 1000)
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+    LocalDateTime now = LocalDateTime.now();
+
+    @Scheduled(fixedRate = 60000)
     public void reportCurrentTime() {
-        System.err.println("TESTEEE, FOI!");
+        System.out.println("Job started at" + dtf.format(now));
+
         Aluno aluno = new Aluno();
         aluno.setEmail("sistemadeavaliacaoinfnet@gmail.com");
         mailService.sendNotification(aluno, "link");
