@@ -9,9 +9,13 @@ package br.edu.infnet.sistema.avaliacao.mail;
  *
  * @author leonam
  */
+import br.edu.infnet.sistema.avaliacao.AvaliacaoTools;
 import br.edu.infnet.sistema.avaliacao.model.Aluno;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import br.edu.infnet.sistema.avaliacao.model.Pessoa;
+import br.edu.infnet.sistema.avaliacao.repository.AlunoRepository;
+import br.edu.infnet.sistema.avaliacao.service.AlunoService;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -23,17 +27,20 @@ public class MailWorker {
 
     @Autowired
     private MailService mailService;
-    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-    LocalDateTime now = LocalDateTime.now();
+
+    @Autowired
+    private AlunoService alunoService;
+
+    List<Pessoa> alunos = new ArrayList<>();
 
     @Scheduled(fixedRate = 60000)
     public void reportCurrentTime() {
-        System.out.println("Job started at" + dtf.format(now));
+        java.sql.Timestamp currentDateTime = AvaliacaoTools.getCurrentTime();
+        List<Pessoa> alunos = alunoService.findByMissingEvaluation(currentDateTime);
 
-        Aluno aluno = new Aluno();
-        aluno.setEmail("sistemadeavaliacaoinfnet@gmail.com");
-        mailService.sendNotification(aluno, "link");
-
+        alunos.stream().forEach(f -> {
+            mailService.sendNotification(f);
+        });
     }
 
 }

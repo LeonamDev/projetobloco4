@@ -30,10 +30,10 @@ public class Avaliacao {
     private String objetivoAvaliacao;
         
     @Column(name="inicio_avaliacao", nullable=false)
-    private LocalDate inicioAvaliacao;
+    private java.sql.Timestamp inicioAvaliacao;
     
     @Column(name="termino_avaliacao", nullable=false)
-    private LocalDate terminoAvaliacao;
+    private java.sql.Timestamp terminoAvaliacao;
     
     @Column(name="observacoes", nullable=true)
     private String observacoes;
@@ -59,7 +59,10 @@ public class Avaliacao {
     	
     }
 
-    public Avaliacao(long id, String codigoAvaliacao, String objetivoAvaliacao, LocalDate inicioAvaliacao, LocalDate terminoAvaliacao, String observacoes, List<Resposta> respostas, Turma turma, Questionario questionario, EmailAbertura emailAbertura) {
+    public Avaliacao(long id, String codigoAvaliacao, String objetivoAvaliacao, 
+            java.sql.Timestamp inicioAvaliacao, java.sql.Timestamp terminoAvaliacao, 
+            String observacoes, List<Resposta> respostas, Turma turma, Questionario questionario,
+            EmailAbertura emailAbertura) {
         this.id = id;
         this.codigoAvaliacao = codigoAvaliacao;
         this.objetivoAvaliacao = objetivoAvaliacao;
@@ -96,19 +99,19 @@ public class Avaliacao {
         this.objetivoAvaliacao = objetivoAvaliacao;
     }
 
-    public LocalDate getInicioAvaliacao() {
+    public java.sql.Timestamp getInicioAvaliacao() {
         return inicioAvaliacao;
     }
 
-    public void setInicioAvaliacao(LocalDate inicioAvaliacao) {
+    public void setInicioAvaliacao(java.sql.Timestamp inicioAvaliacao) {
         this.inicioAvaliacao = inicioAvaliacao;
     }
 
-    public LocalDate getTerminoAvaliacao() {
+    public java.sql.Timestamp getTerminoAvaliacao() {
         return terminoAvaliacao;
     }
 
-    public void setTerminoAvaliacao(LocalDate terminoAvaliacao) {
+    public void setTerminoAvaliacao(java.sql.Timestamp terminoAvaliacao) {
         this.terminoAvaliacao = terminoAvaliacao;
     }
 

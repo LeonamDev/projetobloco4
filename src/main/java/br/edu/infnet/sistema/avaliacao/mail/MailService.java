@@ -6,6 +6,7 @@
 package br.edu.infnet.sistema.avaliacao.mail;
 
 import br.edu.infnet.sistema.avaliacao.model.Aluno;
+import br.edu.infnet.sistema.avaliacao.model.Pessoa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -25,13 +26,13 @@ public class MailService {
         this.javaMailSender = javaMailSender;
     }
     
-    public void sendNotification(Aluno aluno, String link){
+    public void sendNotification(Pessoa aluno){
         SimpleMailMessage mail = new SimpleMailMessage();
         mail.setTo(aluno.getEmail());
         mail.setSubject("Avaliacao");
-        mail.setText("Por favor, clice no link para realizar a avaliacao: " 
-                + link);
-        
+        mail.setText("Por favor, clique no link para realizar a avaliacao: " 
+                //missing id encolder
+                + "http://localhost:8084/avaliacao/questionario?al=" + aluno.getId());
         javaMailSender.send(mail);
     }
    
