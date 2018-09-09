@@ -32,18 +32,13 @@ public class MailWorker {
     @Autowired
     private AvaliacaoService avaliacaoService;
 
-    
     @Scheduled(fixedRate = 60000)
     public void reportCurrentTime() {
         List<Pessoa> alunos = alunoService.findByMissingEvaluation(AvaliacaoTools
                 .getCurrentTime());
 
-        alunos.stream().forEach(f -> {
-            mailService.sendNotification(f);
-        });
-
+        mailService.sendNotification(alunos);
         avaliacaoService.setEnviadoEqualTrue(alunos);
-
     }
 
 }

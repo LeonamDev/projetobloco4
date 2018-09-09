@@ -35,7 +35,7 @@ public class AvaliacaoTools {
     /**
      *
      * @param long value
-     * @return long value encrypted
+     * @return long value encrypted as string
      */
     public static String encrypt(Long value) {
         try {

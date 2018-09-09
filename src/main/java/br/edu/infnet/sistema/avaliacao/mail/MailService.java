@@ -8,6 +8,7 @@ package br.edu.infnet.sistema.avaliacao.mail;
 import br.edu.infnet.sistema.avaliacao.AvaliacaoTools;
 import br.edu.infnet.sistema.avaliacao.model.Aluno;
 import br.edu.infnet.sistema.avaliacao.model.Pessoa;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -33,16 +34,18 @@ public class MailService {
     
     /**
      *
-     * @param aluno
+     * @param alunos
      */
-    public void sendNotification(Pessoa aluno){
-        SimpleMailMessage mail = new SimpleMailMessage();
-        mail.setTo(aluno.getEmail());
-        mail.setSubject("Avaliacao");
-        mail.setText("Por favor, clique no link para realizar a avaliacao: " 
-                + "http://localhost:8084/avaliacao/questionario?al=" + 
-                AvaliacaoTools.encrypt(aluno.getId()));
-        javaMailSender.send(mail);
+    public void sendNotification(List<Pessoa> alunos){
+        alunos.stream().forEach(f -> {
+            SimpleMailMessage mail = new SimpleMailMessage();
+            mail.setTo(f.getEmail());
+            mail.setSubject("Avaliacao");
+            mail.setText("Por favor, clique no link para realizar a avaliacao: " 
+                    + "http://localhost:8084/avaliacao/questionario?al=" + 
+                    AvaliacaoTools.encrypt(f.getId()));
+            javaMailSender.send(mail);
+        });
     }   
     
 }
