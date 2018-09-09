@@ -5,10 +5,12 @@
  */
 package br.edu.infnet.sistema.avaliacao.service;
 
+import br.edu.infnet.sistema.avaliacao.model.Aluno;
 import br.edu.infnet.sistema.avaliacao.model.Pessoa;
 import br.edu.infnet.sistema.avaliacao.repository.AlunoRepository;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

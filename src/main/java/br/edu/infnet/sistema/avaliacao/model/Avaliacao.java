@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name = "avaliacao")
@@ -37,6 +38,10 @@ public class Avaliacao {
     
     @Column(name="observacoes", nullable=true)
     private String observacoes;
+    
+    @Column(columnDefinition = "TINYINT default 0")
+    @Type(type = "org.hibernate.type.NumericBooleanType")
+    public boolean enviado;
     
     @OneToMany(mappedBy = "avaliacao")
     private List<Resposta> respostas;
@@ -121,6 +126,14 @@ public class Avaliacao {
 
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
+    }
+
+    public boolean isEnviado() {
+        return enviado;
+    }
+
+    public void setEnviado(boolean enviado) {
+        this.enviado = enviado;
     }
 
     public List<Resposta> getRespostas() {

@@ -10,12 +10,12 @@ package br.edu.infnet.sistema.avaliacao.mail;
  * @author leonam
  */
 import br.edu.infnet.sistema.avaliacao.AvaliacaoTools;
-import br.edu.infnet.sistema.avaliacao.model.Aluno;
 import br.edu.infnet.sistema.avaliacao.model.Pessoa;
-import br.edu.infnet.sistema.avaliacao.repository.AlunoRepository;
 import br.edu.infnet.sistema.avaliacao.service.AlunoService;
+import br.edu.infnet.sistema.avaliacao.service.AvaliacaoService;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -31,16 +31,19 @@ public class MailWorker {
     @Autowired
     private AlunoService alunoService;
 
-    List<Pessoa> alunos = new ArrayList<>();
+    @Autowired
+    private AvaliacaoService avaliacaoService;
 
     @Scheduled(fixedRate = 60000)
     public void reportCurrentTime() {
-        java.sql.Timestamp currentDateTime = AvaliacaoTools.getCurrentTime();
-        List<Pessoa> alunos = alunoService.findByMissingEvaluation(currentDateTime);
+        List<Pessoa> alunos = alunoService.findByMissingEvaluation(AvaliacaoTools.getCurrentTime());
 
         alunos.stream().forEach(f -> {
             mailService.sendNotification(f);
         });
+
+        avaliacaoService.setEnviadoEqualTrue(alunos);
+
     }
 
 }

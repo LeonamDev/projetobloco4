@@ -20,8 +20,8 @@ import org.springframework.stereotype.Repository;
 public interface AlunoRepository extends JpaRepository<Aluno, Long> {
 
     @Query(value = "SELECT p.* FROM pessoa p INNER JOIN aluno as al on al.id = p.id "
-            + "INNER JOIN turma as t ON t.id = al.id INNER JOIN avaliacao as av "
-            + "ON av.id = t.id WHERE av.inicio_avaliacao <= ?1", nativeQuery = true)
+            + "INNER JOIN turma as t ON t.id = al.turma_id INNER JOIN avaliacao as av "
+            + "ON av.turma_id = t.id WHERE av.enviado = 0 and av.inicio_avaliacao <= ?1", nativeQuery = true)
     List<Object[]> findByMissingEvaluation(java.sql.Timestamp currentDateTime);
-
+   
 }
