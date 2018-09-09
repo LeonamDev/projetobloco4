@@ -5,22 +5,20 @@
  */
 package br.edu.infnet.sistema.avaliacao.mail;
 
-/**
- *
- * @author leonam
- */
 import br.edu.infnet.sistema.avaliacao.AvaliacaoTools;
 import br.edu.infnet.sistema.avaliacao.model.Pessoa;
 import br.edu.infnet.sistema.avaliacao.service.AlunoService;
 import br.edu.infnet.sistema.avaliacao.service.AvaliacaoService;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+/**
+ *
+ * @author leonam
+ */
 @Component    //Replaced the @ComponentScan annotation
 @EnableScheduling
 public class MailWorker {
@@ -34,9 +32,11 @@ public class MailWorker {
     @Autowired
     private AvaliacaoService avaliacaoService;
 
+    
     @Scheduled(fixedRate = 60000)
     public void reportCurrentTime() {
-        List<Pessoa> alunos = alunoService.findByMissingEvaluation(AvaliacaoTools.getCurrentTime());
+        List<Pessoa> alunos = alunoService.findByMissingEvaluation(AvaliacaoTools
+                .getCurrentTime());
 
         alunos.stream().forEach(f -> {
             mailService.sendNotification(f);
