@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/WEB-INF/template/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="titulo">Avaliação</ui:define>
+    <ui:define name="corpo">
+        <div class="container">
+            <p:dataTable id="avaliacoes" var="avaliacao" value="#{avaliacaoBean.todasAvaliacoes}">
+                <p:column headerText="Código" style="width:250px;">
+                    <h:outputText value="#{avaliacao.codigoAvaliacao}" />
+                </p:column>
+                <p:column headerText="Objetivo" style="width:50px;">
+                    <h:outputText value="#{avaliacao.objetivoAvaliacao}" />
+                </p:column>
+                <p:column headerText="Início"  style="width:50px;">
+                    <h:outputText value="#{avaliacao.inicioAvaliacao}" />
+                </p:column>
+                <p:column headerText="Término"  style="width:50px;">
+                    <h:outputText value="#{avaliacao.terminoAvaliacao}" />
+                </p:column>
+            </p:dataTable>
+        </div><br></br>
+        <p:button outcome="/questao/cadastraQuestao.xhtmll" value="Criar">
+            <f:param name="productId" value="10" />
+        </p:button>
+    </ui:define>    
+</ui:composition>
+

@@ -47,7 +47,8 @@ public class MailService {
                     + "," + "\n" 
                     + v.getTexto() +": "
                     + v.getLinkAvaliacao() +"?al="
-                    + AvaliacaoTools.encrypt(k.getId()));
+                    + AvaliacaoTools.encrypt(k.getId())
+                    + "&av=" + AvaliacaoTools.encrypt(v.getId()));
             javaMailSender.send(mail);
         });
     }   
