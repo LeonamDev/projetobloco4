@@ -1,6 +1,6 @@
 /*package br.edu.infnet.sistema.avaliacao.avaliacao;
 
-import br.edu.infnet.sistema.avaliacao.run.AvaliacaoApplication;
+import br.edu.infnet.sistema.avaliacao.AvaliacaoApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
