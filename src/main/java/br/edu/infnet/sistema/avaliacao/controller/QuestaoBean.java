@@ -1,29 +1,55 @@
 package br.edu.infnet.sistema.avaliacao.controller;
 
+import br.edu.infnet.sistema.avaliacao.enuns.Categoria;
 import br.edu.infnet.sistema.avaliacao.model.Questao;
 import br.edu.infnet.sistema.avaliacao.service.QuestaoService;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class QuestaoBean {
+public class QuestaoBean implements Serializable {
     
+    private static final long serialVersionUID = 1L;
+
+    Questao questao = new Questao();
+    List<Questao> todasQuestoes = new ArrayList<>();
+
     @Autowired
-    private QuestaoService questaoService;
-    private Questao questao;
-    private List<Questao> questoes;
-    
-    public String retornaIndex() {
-        return "/index.xhtml";
-    }
-    
-    public QuestaoService getQuestaoService() {
-        return questaoService;
+    QuestaoService questaoService;
+
+    public void consultar() {
+        this.todasQuestoes = questaoService.findAll();
+
     }
 
-    public void setQuestaoService(QuestaoService questaoService) {
-        this.questaoService = questaoService;
+    public void remover(Long id) {
+        FacesContext context = FacesContext.getCurrentInstance();
+        questaoService.remove(id);
+        consultar();
+        context.addMessage(null, new FacesMessage(
+                "Questão removida com sucesso!"));
+
+    }
+
+    public String editar(Questao questao) {
+        this.questao = questao;
+        return "CadastraQuestao.xhtml";
+
+    }
+
+    public void salvar() {
+
+        FacesContext context = FacesContext.getCurrentInstance();
+        questaoService.save(this.questao);
+        this.questao = new Questao();
+        context.addMessage(null, new FacesMessage(
+                "Questão cadastrada com sucesso!"));
+
     }
 
     public Questao getQuestao() {
@@ -34,11 +60,12 @@ public class QuestaoBean {
         this.questao = questao;
     }
 
-    public List<Questao> getQuestoes() {
-        return questoes;
+    public List<Questao> getTodasQuestoes() {
+        return todasQuestoes;
     }
 
-    public void setQuestoes(List<Questao> questoes) {
-        this.questoes = questoes;
+    public Categoria[] getCategoria() {
+        return Categoria.values();
     }
+    
 }

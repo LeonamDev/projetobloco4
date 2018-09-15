@@ -7,21 +7,19 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:define name="titulo">TESTE</ui:define>
+    <ui:define name="titulo">Avaliação</ui:define>
     <ui:define name="corpo">
         <div class="container">
-            <p:dataTable var="Questões" value="#{dtBasicView.cars}">
-                <p:column headerText="Descrição">
-                    <h:outputText value="#{car.id}" />
+            <p:dataTable id="questoes" var="questao" value="#{questaoBean.todasQuestoes}">
+                <p:column headerText="Descrição" style="width:250px;">
+                    <h:outputText value="#{questao.descricaoQuestao}" />
                 </p:column>
-                <p:column headerText="Categoria" style="width:250px;">
-                    <h:outputText value="#{car.id}" />
+                <p:column headerText="Categoria" style="width:50px;">
+                    <h:outputText value="#{questao.categoria}" />
                 </p:column>
-                <p:column headerText="Ativo"  style="width:50px;">
-                    <h:outputText value="#{car.year}" />
+                <p:column headerText="Data de Criação"  style="width:50px;">
+                    <h:outputText value="#{questao.dataCriacao}" />
                 </p:column>
-
-
             </p:dataTable>
         </div><br></br>
         <p:button outcome="/questao/cadastraQuestao.xhtmll" value="Criar">

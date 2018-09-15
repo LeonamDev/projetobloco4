@@ -1,10 +1,13 @@
 package br.edu.infnet.sistema.avaliacao.model;
 
+import br.edu.infnet.sistema.avaliacao.enuns.Categoria;
 import java.time.LocalDate;
 import java.util.List;
 import javax.persistence.Column;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,6 +26,10 @@ public class Questao {
     @Column(name="descricao", nullable=false)
     private String descricaoQuestao;
     
+    @Column(name="categoria")
+    @Enumerated(EnumType.STRING)
+
+    private Categoria categoria;
     @Column(name="data_criacao")
     private LocalDate dataCriacao;
     
@@ -36,9 +43,10 @@ public class Questao {
 
     }
 
-    public Questao(long id, String descricaoQuestao, LocalDate dataCriacao, List<Questionario> questionarios, List<Resposta> respostas) {
+    public Questao(long id, String descricaoQuestao, Categoria categoria, LocalDate dataCriacao, List<Questionario> questionarios, List<Resposta> respostas) {
         this.id = id;
         this.descricaoQuestao = descricaoQuestao;
+        this.categoria = categoria;
         this.dataCriacao = dataCriacao;
         this.questionarios = questionarios;
         this.respostas = respostas;
@@ -58,6 +66,14 @@ public class Questao {
 
     public void setDescricaoQuestao(String descricaoQuestao) {
         this.descricaoQuestao = descricaoQuestao;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
     public LocalDate getDataCriacao() {
