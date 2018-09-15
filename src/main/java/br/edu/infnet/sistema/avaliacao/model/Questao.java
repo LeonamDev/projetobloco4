@@ -28,8 +28,8 @@ public class Questao {
     
     @Column(name="categoria")
     @Enumerated(EnumType.STRING)
+
     private Categoria categoria;
-    
     @Column(name="data_criacao")
     private LocalDate dataCriacao;
     
