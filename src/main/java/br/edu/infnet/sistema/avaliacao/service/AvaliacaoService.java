@@ -1,9 +1,12 @@
 package br.edu.infnet.sistema.avaliacao.service;
 
 import br.edu.infnet.sistema.avaliacao.model.Avaliacao;
+import br.edu.infnet.sistema.avaliacao.model.EmailAbertura;
 import br.edu.infnet.sistema.avaliacao.model.Pessoa;
 import br.edu.infnet.sistema.avaliacao.repository.AvaliacaoRepository;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +21,13 @@ public class AvaliacaoService {
 
     @Autowired
     private AvaliacaoRepository avaliacaoRepository;
-
-    public void setEnviadoEqualTrue(List<Pessoa> alunos) {
+        
+    public void setEnviadoEqualTrue(Map<Pessoa, EmailAbertura> alunos) {
+        List<Long> alunosIDs = new ArrayList<>();
         if (alunos.size() > 0) {
-            List<Long> alunosIDs = alunos.stream()
-                    .map(f -> f.getId())
-                    .collect(Collectors.toList());
-            
+            alunos.forEach((k, v) -> {
+                alunosIDs.add(k.getId());
+            });
             List<Long> avaliacoesIDs = avaliacaoRepository.findBySentEvaluation(alunosIDs);
             avaliacaoRepository.setEnviadoEqualTrue(avaliacoesIDs);
         }
