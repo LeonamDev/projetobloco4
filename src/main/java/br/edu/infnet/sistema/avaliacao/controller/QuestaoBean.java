@@ -1,9 +1,11 @@
 package br.edu.infnet.sistema.avaliacao.controller;
 
+import br.edu.infnet.sistema.avaliacao.AvaliacaoTools;
 import br.edu.infnet.sistema.avaliacao.enuns.Categoria;
 import br.edu.infnet.sistema.avaliacao.model.Questao;
 import br.edu.infnet.sistema.avaliacao.service.QuestaoService;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.application.FacesMessage;
@@ -45,6 +47,7 @@ public class QuestaoBean implements Serializable {
     public void salvar() {
 
         FacesContext context = FacesContext.getCurrentInstance();
+        questao.setDataCriacao(LocalDate.now());
         questaoService.save(this.questao);
         this.questao = new Questao();
         context.addMessage(null, new FacesMessage(

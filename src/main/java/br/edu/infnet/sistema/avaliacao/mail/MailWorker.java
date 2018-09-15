@@ -35,13 +35,10 @@ public class MailWorker {
 
     @Scheduled(fixedRate = 60000)
     public void reportCurrentTime() {
-
        Map<Pessoa,EmailAbertura> alunos = alunoService.findByMissingEvaluation(AvaliacaoTools
                 .getCurrentTime());
-
-       System.err.println(alunos.size());
-        mailService.sendNotification(alunos);
-        avaliacaoService.setEnviadoEqualTrue(alunos);
+       mailService.sendNotification(alunos);
+       avaliacaoService.setEnviadoEqualTrue(alunos);
     }
 
 }
