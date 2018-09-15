@@ -27,7 +27,8 @@ protected void buildCsvDocument(Map<String, Object> model, HttpServletRequest re
     response.setHeader("Content-Disposition", "attachment; filename=\"my-csv-file.csv\"");
 
     List<Questao> questoes = (List<Questao>) model.get("questoes");
-    String[] header = {"Firstname","LastName","LastName","JobTitle","Company","Address","City","Country", "PhoneNumber"};
+    //String[] header = {"Firstname","LastName","LastName","JobTitle","Company","Address","City","Country", "PhoneNumber"};
+    String[] header = {"id","descricao"};
     ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(),
             CsvPreference.STANDARD_PREFERENCE);
 
