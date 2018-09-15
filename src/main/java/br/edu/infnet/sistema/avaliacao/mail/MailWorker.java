@@ -6,10 +6,11 @@
 package br.edu.infnet.sistema.avaliacao.mail;
 
 import br.edu.infnet.sistema.avaliacao.AvaliacaoTools;
+import br.edu.infnet.sistema.avaliacao.model.EmailAbertura;
 import br.edu.infnet.sistema.avaliacao.model.Pessoa;
 import br.edu.infnet.sistema.avaliacao.service.AlunoService;
 import br.edu.infnet.sistema.avaliacao.service.AvaliacaoService;
-import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -34,9 +35,11 @@ public class MailWorker {
 
     @Scheduled(fixedRate = 60000)
     public void reportCurrentTime() {
-        List<Pessoa> alunos = alunoService.findByMissingEvaluation(AvaliacaoTools
+
+       Map<Pessoa,EmailAbertura> alunos = alunoService.findByMissingEvaluation(AvaliacaoTools
                 .getCurrentTime());
 
+       System.err.println(alunos.size());
         mailService.sendNotification(alunos);
         avaliacaoService.setEnviadoEqualTrue(alunos);
     }
