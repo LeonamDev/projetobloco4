@@ -14,8 +14,8 @@ INSERT INTO modulo(codigo, nome, bloco_id) VALUES ("SERVICOSJAVA", "SERVIÇOS CO
 INSERT INTO turma(periodo_fim, periodo_inicio, modulo_id) VALUES('2018-08-09', '2019-08-09', 1);
 INSERT INTO pessoa(cpf,email, genero,nome) VALUES("14915623263","sistemadeavaliacaoinfnet@gmail.com", "M", "Steve Wozniak");  
 INSERT INTO aluno(matricula, id, turma_id) VALUES("15326529", 1, 1);
-INSERT INTO email_abertura(link_avaliacao, texto) values("http://localhost:8084/avaliacao/questionario","Prezado(a), segue o link para você realizar a avaliacao");
-insert into avaliacao(codigo_avaliacao,inicio_avaliacao,termino_avaliacao,turma_id, email_abertura_id) values("45ASD45A","2018-09-08 17:33:35.133", "2018-10-08 17:33:35.133", 1, 1);
+INSERT INTO email_abertura(link_avaliacao, texto) VALUES("http://localhost:8084/avaliacao/questionario","Segue o link para você realizar a avaliacao");
+INSERT INTO avaliacao(codigo_avaliacao,inicio_avaliacao,termino_avaliacao,turma_id, email_abertura_id) VALUES("45ASD45A","2018-09-08 17:33:35.133", "2018-10-08 17:33:35.133", 1, 1);
 
 /***
  *Inserido para testes de desenvolvimento do cadastro de avaliação. - Comentar ou remover para apresentação.

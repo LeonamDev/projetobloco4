@@ -43,7 +43,9 @@ public class MailService {
             SimpleMailMessage mail = new SimpleMailMessage();
             mail.setTo(k.getEmail());
             mail.setSubject("Avaliacao");
-            mail.setText(v.getTexto() +": "
+            mail.setText("Prazado(a) " + k.getNome() 
+                    + "," + "\n" 
+                    + v.getTexto() +": "
                     + v.getLinkAvaliacao() +"?al="
                     + AvaliacaoTools.encrypt(k.getId()));
             javaMailSender.send(mail);

@@ -7,19 +7,39 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
+    <f:metadata> 
+        <f:viewAction action="#{questaoBean.consultar()}"></f:viewAction>"
+    </f:metadata>
+
     <ui:define name="titulo">Avaliação</ui:define>
     <ui:define name="corpo">
         <div class="container">
             <p:dataTable id="questoes" var="questao" value="#{questaoBean.todasQuestoes}">
+                
                 <p:column headerText="Descrição" style="width:250px;">
                     <h:outputText value="#{questao.descricaoQuestao}" />
                 </p:column>
+                
                 <p:column headerText="Categoria" style="width:50px;">
                     <h:outputText value="#{questao.categoria}" />
                 </p:column>
+                
                 <p:column headerText="Data de Criação"  style="width:50px;">
-                    <h:outputText value="#{questao.dataCriacao}" />
+                    <h:outputText value="#{questao.dataCriacao}">
+                        <!--<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />-->
+                    </h:outputText>
                 </p:column>
+
+                <p:column  style="width:50px;">
+                    <f:facet name="header">
+                        <h:outputText value="Ações"/>
+                    </f:facet>
+                    <h:commandButton value="Editar"
+                                     action="#{questaoBean.editar(questao)}" />
+                    <h:commandButton value="Remover"
+                                     action="#{questaoBean.remover(questao.id)}" />
+                </p:column>
+
             </p:dataTable>
         </div><br></br>
         <p:button outcome="/questao/cadastraQuestao.xhtmll" value="Criar">
