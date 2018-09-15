@@ -64,7 +64,7 @@ public class QuestaoBean implements Serializable {
         return todasQuestoes;
     }
 
-    public Categoria[] getCategoria() {
+    public Categoria[] getCategorias() {
         return Categoria.values();
     }
     
