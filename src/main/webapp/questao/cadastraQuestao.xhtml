@@ -15,19 +15,21 @@
                 <p:inputTextarea rows="3" cols="33" />
                 <h:outputText id="display" />
                 <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-                    <p:outputLabel for="categoria" value="Categoria:" />
+                    <h:outputLabel for="categotia" value="Categoria" />
 
-                    <h:selectOneMenu 
-                        id="categoria" 
-                        value="#{questaoBean.questao.categoria}" 
-                        label="Categoria"
-                        style="width:125px">
-                        <f:selectItem 
+                    <h:selectOneMenu
+                        value="#{questaoBean.questao.categoria}"  
+                        label="Categoria">
+                        <f:selectItem
                             itemLabel="Selecione" noSelectionOption="true" />
-                        <f:selectItem 
-                            value="#{questaoBean.categoria}"
-                            itemValue="#{categoria.id}" />
+                        <f:selectItems
+                            value="#{questaoBean.categorias}"
+                            var="categoria" itemValue="#{categoria.id}"
+                            />
                     </h:selectOneMenu>
+                    
+                    
+                    
 <!--
                     <p:button outcome="/questao/cadastraQuestao.xhtmll" value="Salvar">
                         <f:param name="salvar" value="10" />
