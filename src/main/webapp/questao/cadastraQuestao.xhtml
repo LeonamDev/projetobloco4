@@ -11,9 +11,12 @@
     <ui:define name="corpo">
         <div class="container">
             <h:form>               
+
                 <h3>Questão</h3>
+
                 <p:inputTextarea rows="3" cols="33" />
-                <h:outputText id="display" />
+                <h:outputText id="display" value="#{questaoBean.questao.descricaoQuestao}"  />
+
                 <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
                     <h:outputLabel for="categotia" value="Categoria" />
 
@@ -27,14 +30,7 @@
                             var="categoria" itemValue="#{categoria.id}"
                             />
                     </h:selectOneMenu>
-                    
-                    
-                    
-<!--
-                    <p:button outcome="/questao/cadastraQuestao.xhtmll" value="Salvar">
-                        <f:param name="salvar" value="10" />
-                    </p:button>
--->                
+
                     <h:commandButton value="Salvar"
                                      action="#{questaoBean.salvar()}" />
                  
