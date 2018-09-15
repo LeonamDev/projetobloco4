@@ -32,7 +32,7 @@ public class QuestaoBean implements Serializable {
     public void remover(Long id) {
         FacesContext context = FacesContext.getCurrentInstance();
         questaoService.remove(id);
-        consultar();
+        this.consultar();
         context.addMessage(null, new FacesMessage(
                 "Questão removida com sucesso!"));
 
@@ -40,12 +40,13 @@ public class QuestaoBean implements Serializable {
 
     public String editar(Questao questao) {
         this.questao = questao;
-        return "CadastraQuestao.xhtml";
+        return "/questao/cadastraQuestao.xhtml";
 
     }
 
     public void salvar() {
 
+        long id = questao.getId();
         FacesContext context = FacesContext.getCurrentInstance();
         questao.setDataCriacao(LocalDate.now());
         questaoService.save(this.questao);

@@ -16,15 +16,15 @@
         <div class="container">
             <p:dataTable id="questoes" var="questao" value="#{questaoBean.todasQuestoes}">
                 
-                <p:column headerText="Descrição" style="width:250px;">
+                <p:column headerText="Descrição" style="width:200px;">
                     <h:outputText value="#{questao.descricaoQuestao}" />
                 </p:column>
                 
-                <p:column headerText="Categoria" style="width:50px;">
+                <p:column headerText="Categoria" style="width:150px;">
                     <h:outputText value="#{questao.categoria}" />
                 </p:column>
                 
-                <p:column headerText="Data de Criação"  style="width:50px;">
+                <p:column headerText="Data de Criação"  style="width:60px;">
                     <h:outputText value="#{questao.dataCriacao}">
                         <!--<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />-->
                     </h:outputText>
@@ -34,9 +34,9 @@
                     <f:facet name="header">
                         <h:outputText value="Ações"/>
                     </f:facet>
-                    <h:commandButton value="Editar"
+                    <p:commandButton value="Editar"
                                      action="#{questaoBean.editar(questao)}" />
-                    <h:commandButton value="Remover"
+                    <p:commandButton value="Remover"
                                      action="#{questaoBean.remover(questao.id)}" />
                 </p:column>
 

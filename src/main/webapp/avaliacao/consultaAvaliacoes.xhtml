@@ -10,18 +10,18 @@
     <ui:define name="titulo">Avaliação</ui:define>
     <ui:define name="corpo">
         <div class="container">
-            <p:dataTable id="questoes" var="questao" value="#{questaoBean.todasQuestoes}">
+            <p:dataTable id="avaliacoes" var="avaliacao" value="#{avaliacaoBean.todasAvaliacoes}">
                 <p:column headerText="Código" style="width:250px;">
-                    <h:outputText value="" />
+                    <h:outputText value="#{avaliacao.codigoAvaliacao}" />
                 </p:column>
                 <p:column headerText="Objetivo" style="width:50px;">
-                    <h:outputText value="" />
+                    <h:outputText value="#{avaliacao.objetivoAvaliacao}" />
                 </p:column>
                 <p:column headerText="Início"  style="width:50px;">
-                    <h:outputText value="" />
+                    <h:outputText value="#{avaliacao.inicioAvaliacao}" />
                 </p:column>
                 <p:column headerText="Término"  style="width:50px;">
-                    <h:outputText value="" />
+                    <h:outputText value="#{avaliacao.terminoAvaliacao}" />
                 </p:column>
             </p:dataTable>
         </div><br></br>

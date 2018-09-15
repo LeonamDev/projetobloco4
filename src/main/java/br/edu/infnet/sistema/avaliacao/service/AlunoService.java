@@ -37,8 +37,9 @@ public class AlunoService {
             pessoa.setNome((String) f[4]);
             
             EmailAbertura emailAbertura = new EmailAbertura();
-            emailAbertura.setLinkAvaliacao((String) f[5]);
-            emailAbertura.setTexto((String) f[6]);
+            emailAbertura.setId(Long.valueOf(f[5].toString()));
+            emailAbertura.setLinkAvaliacao((String) f[6]);
+            emailAbertura.setTexto((String) f[7]);
             
             alunosMap.put(pessoa, emailAbertura);
             
