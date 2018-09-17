@@ -7,7 +7,7 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:define name="titulo">Avaliação</ui:define>
+    <ui:define name="titulo">Consulta de Avaliação</ui:define>
     <ui:define name="corpo">
         <div class="container">
             <p:dataTable id="avaliacoes" var="avaliacao" value="#{avaliacaoBean.todasAvaliacoes}">
@@ -25,9 +25,6 @@
                 </p:column>
             </p:dataTable>
         </div><br></br>
-        <p:button outcome="/questao/cadastraQuestao.xhtmll" value="Criar">
-            <f:param name="productId" value="10" />
-        </p:button>
-    </ui:define>    
+        <p:button outcome="/avaliacao/cadastraAvaliacao.xhtml" value="Criar"/>
+    </ui:define>
 </ui:composition>
-
