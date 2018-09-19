@@ -25,6 +25,6 @@ public class LocalDateTimeConverter implements Converter {
     public String getAsString(FacesContext context, UIComponent component, Object value) {
 
         LocalDateTime dateValue = (LocalDateTime) value;
-        return dateValue.format(DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm"));
+        return dateValue.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
     }
 }
