@@ -24,10 +24,10 @@
                         <h:outputText value="#{avaliacao.objetivoAvaliacao}" />
                     </p:column>
                     <p:column headerText="Início"  style="width:50px;">
-                        <h:outputText value="#{avaliacao.inicioAvaliacao}" />
+                        <h:outputText value="#{avaliacao.inicioAvaliacao}" converter="#{localDateTimeConverter}"/>
                     </p:column>
                     <p:column headerText="Término"  style="width:50px;">
-                        <h:outputText value="#{avaliacao.terminoAvaliacao}" />
+                        <h:outputText value="#{avaliacao.terminoAvaliacao}" converter="#{localDateTimeConverter}"/>
                     </p:column>
                     <p:column  style="width:50px;">
                         <f:facet name="header">

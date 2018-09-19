@@ -1,6 +1,8 @@
 package br.edu.infnet.sistema.avaliacao.controller;
 
+import br.edu.infnet.sistema.avaliacao.model.Avaliacao;
 import br.edu.infnet.sistema.avaliacao.model.Resposta;
+import br.edu.infnet.sistema.avaliacao.service.AvaliacaoService;
 import br.edu.infnet.sistema.avaliacao.service.RespostaService;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,47 +17,40 @@ public class RespostaBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    Avaliacao avaliacao = new Avaliacao();
     Resposta resposta = new Resposta();
     List<Resposta> todasRespostas = new ArrayList<>();
 
     @Autowired
     RespostaService respostaService;
-
-    public void consultar() {
-        this.todasRespostas = respostaService.findAll();
-
-    }
-
-    public void remover(Long id) {
-        FacesContext context = FacesContext.getCurrentInstance();
-        respostaService.remove(id);
-        consultar();
-        context.addMessage(null, new FacesMessage(
-                "Cliente removido com sucesso!"));
-
-    }
-
-    public String editar(Resposta resposta) {
-        this.resposta = resposta;
-        return "CadastraResposta.xhtml";
-
-    }
+    @Autowired
+    AvaliacaoService avaliacaoService;
 
     public void salvar() {
-
         FacesContext context = FacesContext.getCurrentInstance();
         respostaService.save(this.resposta);
         this.resposta = new Resposta();
         context.addMessage(null, new FacesMessage(
                 "Resposta cadastrado com sucesso!"));
+    }
+    
+    public void prepararCadastro(Long idAvaliacao) {
+        avaliacao = avaliacaoService.findById(idAvaliacao).get();
+    }
 
+    public Avaliacao getAvaliacao() {
+        return avaliacao;
+    }
+
+    public void setAvaliacao(Avaliacao avaliacao) {
+        this.avaliacao = avaliacao;
     }
 
     public Resposta getResposta() {
         return resposta;
     }
 
-    public void setAvaliacao(Resposta resposta) {
+    public void setResposta(Resposta resposta) {
         this.resposta = resposta;
     }
 
@@ -63,4 +58,15 @@ public class RespostaBean implements Serializable {
         return todasRespostas;
     }
 
+    public void setTodasRespostas(List<Resposta> todasRespostas) {
+        this.todasRespostas = todasRespostas;
+    }
+
+    public RespostaService getRespostaService() {
+        return respostaService;
+    }
+
+    public void setRespostaService(RespostaService respostaService) {
+        this.respostaService = respostaService;
+    }
 }
