@@ -1,7 +1,8 @@
 package br.edu.infnet.sistema.avaliacao.model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Column;
 
 import javax.persistence.Entity;
@@ -31,10 +32,10 @@ public class Avaliacao {
     private String objetivoAvaliacao;
         
     @Column(name="inicio_avaliacao", nullable=false)
-    private java.sql.Timestamp inicioAvaliacao;
+    private LocalDateTime inicioAvaliacao;
     
     @Column(name="termino_avaliacao", nullable=false)
-    private java.sql.Timestamp terminoAvaliacao;
+    private LocalDateTime terminoAvaliacao;
     
     @Column(name="observacoes", nullable=true)
     private String observacoes;
@@ -65,7 +66,7 @@ public class Avaliacao {
     }
 
     public Avaliacao(long id, String codigoAvaliacao, String objetivoAvaliacao, 
-            java.sql.Timestamp inicioAvaliacao, java.sql.Timestamp terminoAvaliacao, 
+            LocalDateTime inicioAvaliacao, LocalDateTime terminoAvaliacao, 
             String observacoes, List<Resposta> respostas, Turma turma, Questionario questionario,
             EmailAbertura emailAbertura) {
         this.id = id;
@@ -104,19 +105,19 @@ public class Avaliacao {
         this.objetivoAvaliacao = objetivoAvaliacao;
     }
 
-    public java.sql.Timestamp getInicioAvaliacao() {
+    public LocalDateTime getInicioAvaliacao() {
         return inicioAvaliacao;
     }
 
-    public void setInicioAvaliacao(java.sql.Timestamp inicioAvaliacao) {
+    public void setInicioAvaliacao(LocalDateTime inicioAvaliacao) {
         this.inicioAvaliacao = inicioAvaliacao;
     }
 
-    public java.sql.Timestamp getTerminoAvaliacao() {
+    public LocalDateTime getTerminoAvaliacao() {
         return terminoAvaliacao;
     }
 
-    public void setTerminoAvaliacao(java.sql.Timestamp terminoAvaliacao) {
+    public void setTerminoAvaliacao(LocalDateTime terminoAvaliacao) {
         this.terminoAvaliacao = terminoAvaliacao;
     }
 
@@ -166,5 +167,20 @@ public class Avaliacao {
 
     public void setEmailAbertura(EmailAbertura emailAbertura) {
         this.emailAbertura = emailAbertura;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Avaliacao other = (Avaliacao) obj;
+        return Objects.equals(this.id, other.id);
     }
 }

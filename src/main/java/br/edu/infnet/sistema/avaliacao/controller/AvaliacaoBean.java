@@ -51,8 +51,9 @@ public class AvaliacaoBean implements Serializable {
     }
 
     public String editar(Avaliacao avaliacao) {
+        prepararCadastro();
         this.avaliacao = avaliacao;
-        return "CadastraAvaliacao.xhtml";
+        return "cadastraAvaliacao.xhtml";
 
     }
 
@@ -66,6 +67,7 @@ public class AvaliacaoBean implements Serializable {
     }
     
     public void prepararCadastro() {
+        avaliacao = new Avaliacao();
         this.todasTurmas = turmaService.findAll();
         this.todosQuestionarios = questionarioService.findAll();
         this.todosEmails = emailaberturaService.findAll();
