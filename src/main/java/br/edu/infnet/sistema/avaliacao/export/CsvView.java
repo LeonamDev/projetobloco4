@@ -5,7 +5,8 @@
  */
 package br.edu.infnet.sistema.avaliacao.export;
 
-import br.edu.infnet.sistema.avaliacao.model.Questao;
+import br.edu.infnet.sistema.avaliacao.model.Resposta;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -22,23 +23,38 @@ import org.supercsv.prefs.CsvPreference;
  */
 public class CsvView extends AbstractCsvView  {
 @Override
-protected void buildCsvDocument(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+protected void buildCsvDocument(Map<String, Object> model, HttpServletRequest request, HttpServletResponse
+            response) throws Exception {
 
     response.setHeader("Content-Disposition", "attachment; filename=\"my-csv-file.csv\"");
 
-    List<Questao> questoes = (List<Questao>) model.get("questoes");
+    List<Resposta> respostas = (List<Resposta>) model.get("respostas");
+    
     //String[] header = {"Firstname","LastName","LastName","JobTitle","Company","Address","City","Country", "PhoneNumber"};
-    String[] header = {"descricaoQuestao","id"};
+    
+
+    
+    String[] header = {"avaliacao", "questao", "grauConformidade"};
+    System.out.println("resultado " + Arrays.toString(header));
+
+    
     ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(),
             CsvPreference.STANDARD_PREFERENCE);
 
     csvWriter.writeHeader(header);
+    
 
-    for(Questao questao : questoes){
-        csvWriter.write(questao, header);
+    for(Resposta resposta : respostas){
+        for (int i=0; i < header.length; i++)
+            if (header[i].toString() == null) {
+                csvWriter.write(resposta, header);
+            } else {
+               csvWriter.write(resposta, header); 
+        }
+
     }
     csvWriter.close();
-
+    
 
 }
 }

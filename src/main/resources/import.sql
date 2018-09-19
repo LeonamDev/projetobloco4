@@ -39,3 +39,15 @@ INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 6);
 INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 7);
 INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 8);
 INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 9);
+
+-- Inserindo para testes de desenvolvimento dados da resposta de uma avaliação
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_TOTALMENTE", 1, 1, 1);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_PARCIALMENTE", 1, 1, 2);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("NAO_CONCORDO_NEM_DISCORDO", 1, 1, 3);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("DISCORDO_PARCIALMENTE", 1, 1, 4);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("SEM_RESPOSTA", 1, 1, 5);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_TOTALMENTE", 1, 1, 6);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_PARCIALMENTE", 1, 1, 7);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_PARCIALMENTE", 1, 1, 8);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("DISCORDO_TOTALMENTE", 1, 1, 9);
+
