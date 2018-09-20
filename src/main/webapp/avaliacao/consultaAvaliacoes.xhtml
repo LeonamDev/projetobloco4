@@ -18,25 +18,38 @@
                 <p:messages/>
                 <p:dataTable id="avaliacoes" var="avaliacao" value="#{avaliacaoBean.todasAvaliacoes}">
                     <p:column headerText="Código" style="width:50px;">
-                        <h:outputText value="#{avaliacao.codigoAvaliacao}" />
+                        <div style="display:flex;justify-content:center;align-items:center;">
+                            <h:outputText value="#{avaliacao.codigoAvaliacao}" />
+                        </div>
                     </p:column>
                     <p:column headerText="Objetivo" style="width:50px;">
                         <h:outputText value="#{avaliacao.objetivoAvaliacao}" />
                     </p:column>
                     <p:column headerText="Início"  style="width:50px;">
-                        <h:outputText value="#{avaliacao.inicioAvaliacao}" converter="#{localDateTimeConverter}"/>
+                        <div style="display:flex;justify-content:center;align-items:center;">
+                            <h:outputText value="#{avaliacao.inicioAvaliacao}" converter="#{localDateTimeConverter}"/>
+                        </div>
                     </p:column>
                     <p:column headerText="Término"  style="width:50px;">
-                        <h:outputText value="#{avaliacao.terminoAvaliacao}" converter="#{localDateTimeConverter}"/>
+                        <div style="display:flex;justify-content:center;align-items:center;">
+                            <h:outputText value="#{avaliacao.terminoAvaliacao}" converter="#{localDateTimeConverter}"/>
+                        </div>
                     </p:column>
                     <p:column  style="width:50px;">
                         <f:facet name="header">
                             <h:outputText value="Ações"/>
                         </f:facet>
-                        <h:commandButton value="Editar"
+<!--                            <h:commandButton value="Editar"
                                          action="#{avaliacaoBean.editar(avaliacao)}" />
-                        <h:commandButton value="Remover"
+                                <h:commandButton value="Remover"
                                          action="#{avaliacaoBean.remover(avaliacao.id)}" />
+-->
+                        <div style="display:flex;justify-content:center;align-items:center;">
+                            <p:commandButton icon="ui-icon-pencil" title="Editar"  
+                                             action="#{avaliacaoBean.editar(avaliacao)}" />
+                            <p:commandButton icon="ui-icon-trash" title="Remever"
+                                             action="#{avaliacaoBean.remover(avaliacao.id)}" />
+                        </div>
                     </p:column>
                 </p:dataTable>
             </h:form>

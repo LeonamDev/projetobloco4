@@ -24,10 +24,10 @@
                     <h:outputText value="#{questao.categoria.value}" />
                 </p:column>
                 
-                <p:column headerText="Data de Criação" style="width:60px;">
+                <p:column headerText="Data de Criação" style="width:40px;">
                     <div style="display:flex;justify-content:center;align-items:center;">
-                        <h:outputText value="#{questao.dataCriacao}">
-                            <!--<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />-->
+                        <h:outputText value="#{questao.dataCriacao}" >
+                            <!--<f:convertDateTime pattern="dd/MM/yyyy HH:mm" />-->
                         </h:outputText>
                     </div>
                 </p:column>
