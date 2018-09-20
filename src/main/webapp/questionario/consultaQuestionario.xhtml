@@ -8,39 +8,31 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <f:metadata> 
-        <f:viewAction action="#{questaoBean.consultar()}"></f:viewAction>"
+        <f:viewAction action="#{questionarioBean.consultar()}"></f:viewAction>"
     </f:metadata>
 
-    <ui:define name="titulo">Consulta de Questões</ui:define>
+    <ui:define name="titulo">Avaliação</ui:define>
     <ui:define name="corpo">
         <div class="container">
-            <p:dataTable id="questoes" var="questao" value="#{questaoBean.todasQuestoes}">
+            <p:dataTable id="questionarios" var="questionario" value="#{questionarioBean.todosQuestionarios}">
                 
-                <p:column headerText="Descrição" style="width:200px;">
-                    <h:outputText value="#{questao.descricaoQuestao}" />
+                <p:column headerText="Id" style="width:200px;">
+                    <h:outputText value="#{questionario.id}" />
                 </p:column>
                 
-                <p:column headerText="Categoria" style="width:150px;">
-                    <h:outputText value="#{questao.categoria.value}" />
+                <p:column headerText="Identificador" style="width:150px;">
+                    <h:outputText value="#{questionario.identificador}" />
                 </p:column>
                 
-                <p:column headerText="Data de Criação" style="width:60px;">
-                    <div style="display:flex;justify-content:center;align-items:center;">
-                        <h:outputText value="#{questao.dataCriacao}">
-                            <!--<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />-->
-                        </h:outputText>
-                    </div>
-                </p:column>
-
                 <p:column  style="width:30px;">
                     <f:facet name="header">
                         <h:outputText value="Ações"/>
                     </f:facet>
                     <div style="display:flex;justify-content:center;align-items:center;">
                         <p:commandButton icon="ui-icon-pencil" title="Editar"  
-                                         action="#{questaoBean.editar(questao)}" />
+                                         action="#{questionarioBean.editar(questionario)}" />
                         <p:commandButton icon="ui-icon-trash" title="Remever"
-                                         action="#{questaoBean.remover(questao.id)}" />
+                                         action="#{questtionarioBean.remover(questionario.id)}" />
                     </div>
                 </p:column>
 

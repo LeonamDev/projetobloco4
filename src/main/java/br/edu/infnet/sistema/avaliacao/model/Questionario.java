@@ -1,6 +1,7 @@
 package br.edu.infnet.sistema.avaliacao.model;
 
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
@@ -77,5 +78,20 @@ public class Questionario {
 
     public void setAvaliacoes(List<Avaliacao> avaliacoes) {
         this.avaliacoes = avaliacoes;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Questionario other = (Questionario) obj;
+        return Objects.equals(this.id, other.id);
     }
 }

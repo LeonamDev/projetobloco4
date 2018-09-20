@@ -7,23 +7,39 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
+    <f:metadata>
+        <f:viewAction action="#{avaliacaoBean.consultar()}"></f:viewAction>"
+    </f:metadata>
+
     <ui:define name="titulo">Consulta de Avaliação</ui:define>
     <ui:define name="corpo">
         <div class="container">
-            <p:dataTable id="avaliacoes" var="avaliacao" value="#{avaliacaoBean.todasAvaliacoes}">
-                <p:column headerText="Código" style="width:250px;">
-                    <h:outputText value="#{avaliacao.codigoAvaliacao}" />
-                </p:column>
-                <p:column headerText="Objetivo" style="width:50px;">
-                    <h:outputText value="#{avaliacao.objetivoAvaliacao}" />
-                </p:column>
-                <p:column headerText="Início"  style="width:50px;">
-                    <h:outputText value="#{avaliacao.inicioAvaliacao}" />
-                </p:column>
-                <p:column headerText="Término"  style="width:50px;">
-                    <h:outputText value="#{avaliacao.terminoAvaliacao}" />
-                </p:column>
-            </p:dataTable>
+            <h:form>
+                <p:messages/>
+                <p:dataTable id="avaliacoes" var="avaliacao" value="#{avaliacaoBean.todasAvaliacoes}">
+                    <p:column headerText="Código" style="width:50px;">
+                        <h:outputText value="#{avaliacao.codigoAvaliacao}" />
+                    </p:column>
+                    <p:column headerText="Objetivo" style="width:50px;">
+                        <h:outputText value="#{avaliacao.objetivoAvaliacao}" />
+                    </p:column>
+                    <p:column headerText="Início"  style="width:50px;">
+                        <h:outputText value="#{avaliacao.inicioAvaliacao}" converter="#{localDateTimeConverter}"/>
+                    </p:column>
+                    <p:column headerText="Término"  style="width:50px;">
+                        <h:outputText value="#{avaliacao.terminoAvaliacao}" converter="#{localDateTimeConverter}"/>
+                    </p:column>
+                    <p:column  style="width:50px;">
+                        <f:facet name="header">
+                            <h:outputText value="Ações"/>
+                        </f:facet>
+                        <h:commandButton value="Editar"
+                                         action="#{avaliacaoBean.editar(avaliacao)}" />
+                        <h:commandButton value="Remover"
+                                         action="#{avaliacaoBean.remover(avaliacao.id)}" />
+                    </p:column>
+                </p:dataTable>
+            </h:form>
         </div><br></br>
         <p:button outcome="/avaliacao/cadastraAvaliacao.xhtml" value="Criar"/>
     </ui:define>

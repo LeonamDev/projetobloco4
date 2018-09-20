@@ -1,13 +1,3 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- * Author:  leonam
- * Created: 08/09/2018
- */
-
 INSERT INTO curso(codigo, nome) VALUES("ENGJAVA", "ENGENHERIA DE SOFTWARE COM JAVA");
 INSERT INTO bloco(codigo, nome, curso_id) VALUES("JAVAWEB","JAVA WEB E SERVICOS",1);
 INSERT INTO modulo(codigo, nome, bloco_id) VALUES ("SERVICOSJAVA", "SERVIÇOS COM TECNOLOGIA JAVA", 1);
@@ -41,9 +31,13 @@ INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_CONTEU
 /***
  *Inserido para testes de desenvolvimento do cadastro de avaliação. - Comentar ou remover para apresentação.
  */
-INSERT INTO questionario(identificador) VALUES("TESTE01");
+INSERT INTO questionario(identificador) VALUES("Avaliação - Alunos da Graduação");
+INSERT INTO questionario(identificador) VALUES("Avaliação - Alunos da Pós-Graduação");
+INSERT INTO questionario(identificador) VALUES("Avaliação - Alunos da Extensão");
+INSERT INTO questionario(identificador) VALUES("Avaliação - Alunos do Politécnico");
+
 INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 1);
-INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 2;
+INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 2);
 INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 3);
 INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 4);
 INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 5);

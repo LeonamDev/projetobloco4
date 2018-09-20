@@ -1,5 +1,6 @@
 package br.edu.infnet.sistema.avaliacao.model;
 
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -53,5 +54,20 @@ public class EmailAbertura {
 
     public void setLinkAvaliacao(String linkAvaliacao) {
         this.linkAvaliacao = linkAvaliacao;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final EmailAbertura other = (EmailAbertura) obj;
+        return Objects.equals(this.id, other.id);
     }
 }
