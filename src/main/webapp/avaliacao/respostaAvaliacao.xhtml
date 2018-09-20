@@ -6,7 +6,7 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
-    
+
     <f:metadata>
         <f:viewAction action="#{respostaBean.prepararCadastro(param['al'], param['av'])}" />
     </f:metadata>
@@ -18,18 +18,57 @@
             <br/>
             <h:outputText value="Módulo: " />
             <h:outputText value="#{respostaBean.avaliacao.turma.modulo.codigoModulo} - #{respostaBean.avaliacao.turma.modulo.nomeModulo}" />
-            <br/><br/>            
+            <br/><br/>
+            <h:outputText value="Por favor, preencha essa avaliação com toda atenção. Ela é muito importante para a melhoria contínua de seu curso. É através das avaliações
+                                 que poderemos construir um curso cada vez melhor, o que é importante para você agora e para o valor de seu diploma no futuro."/>
+            <br/><br/>
             <h:form>
                 <p:messages/>
-                <h:panelGrid columns="7">
-                    <p:outputLabel value="Avaliação geral da Pós-Graduação:"/>
-                    <p:outputLabel value="Concordo Totalmente"/>
-                    <p:outputLabel value="Concordo"/>
-                    <p:outputLabel value="Não concordo nem discordo"/>
-                    <p:outputLabel value="discordo"/>
-                    <p:outputLabel value="Discordo totalmente"/>
-                    <p:outputLabel value="Não sei avaliar"/>
-                </h:panelGrid>
+                <p:dataTable id="questoesGeral" var="questao" value="#{respostaBean.questoesGeral}">
+                    <p:column headerText="Avaliação geral da Pós-Graduação:" style="text-align:left">
+                        <h:outputText value="#{questao.descricaoQuestao}" />
+                    </p:column>
+                    <p:column>
+                        <p:selectOneMenu value="" style="width:250px">
+                            <f:selectItem itemLabel="" itemValue="0" />
+                            <f:selectItem itemLabel="Concordo Totalmente" itemValue="1" />
+                            <f:selectItem itemLabel="Concordo" itemValue="2" />
+                            <f:selectItem itemLabel="Não Concordo nem Discordo" itemValue="3" />
+                            <f:selectItem itemLabel="Discordo Totalmente" itemValue="4" />
+                            <f:selectItem itemLabel="Não sei Avaliar" itemValue="5" />
+                        </p:selectOneMenu>
+                    </p:column>
+                </p:dataTable>
+                <p:dataTable id="questoesProfessor" var="questao" value="#{respostaBean.questoesProfessor}">
+                    <p:column headerText="Avaliação do professor no módulo:" style="text-align:left">
+                        <h:outputText value="#{questao.descricaoQuestao}" />
+                    </p:column>
+                    <p:column>
+                        <p:selectOneMenu value="" style="width:250px">
+                            <f:selectItem itemLabel="" itemValue="0" />
+                            <f:selectItem itemLabel="Concordo Totalmente" itemValue="1" />
+                            <f:selectItem itemLabel="Concordo" itemValue="2" />
+                            <f:selectItem itemLabel="Não Concordo nem Discordo" itemValue="3" />
+                            <f:selectItem itemLabel="Discordo Totalmente" itemValue="4" />
+                            <f:selectItem itemLabel="Não sei Avaliar" itemValue="5" />
+                        </p:selectOneMenu>
+                    </p:column>
+                </p:dataTable>
+                <p:dataTable id="questoesConteudo" var="questao" value="#{respostaBean.questoesConteudo}">
+                    <p:column headerText="Avaliação de conteúdo e infra-estrutura no módulo:" style="text-align:left">
+                        <h:outputText value="#{questao.descricaoQuestao}" />
+                    </p:column>
+                    <p:column>
+                        <p:selectOneMenu value="" style="width:250px">
+                            <f:selectItem itemLabel="" itemValue="0" />
+                            <f:selectItem itemLabel="Concordo Totalmente" itemValue="1" />
+                            <f:selectItem itemLabel="Concordo" itemValue="2" />
+                            <f:selectItem itemLabel="Não Concordo nem Discordo" itemValue="3" />
+                            <f:selectItem itemLabel="Discordo Totalmente" itemValue="4" />
+                            <f:selectItem itemLabel="Não sei Avaliar" itemValue="5" />
+                        </p:selectOneMenu>
+                    </p:column>
+                </p:dataTable>
             </h:form>
         </div>
     </ui:define>    

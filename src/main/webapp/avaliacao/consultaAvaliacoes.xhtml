@@ -33,10 +33,12 @@
                         <f:facet name="header">
                             <h:outputText value="Ações"/>
                         </f:facet>
-                        <h:commandButton value="Editar"
-                                         action="#{avaliacaoBean.editar(avaliacao)}" />
-                        <h:commandButton value="Remover"
-                                         action="#{avaliacaoBean.remover(avaliacao.id)}" />
+                        <div style="display:flex;justify-content:center;align-items:center;">
+                            <h:commandButton value="Editar"
+                                             action="#{avaliacaoBean.editar(avaliacao)}" />
+                            <h:commandButton value="Remover"
+                                             action="#{avaliacaoBean.remover(avaliacao.id)}" />
+                        </div>
                     </p:column>
                 </p:dataTable>
             </h:form>
