@@ -18,4 +18,7 @@ public enum Categoria {
         return id;
     }
     
+    public String getValue() {
+        return value;
+    }
 }

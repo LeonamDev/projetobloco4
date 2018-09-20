@@ -5,12 +5,14 @@
  */
 package br.edu.infnet.sistema.avaliacao.service;
 
+import br.edu.infnet.sistema.avaliacao.model.Aluno;
 import br.edu.infnet.sistema.avaliacao.model.EmailAbertura;
 import br.edu.infnet.sistema.avaliacao.model.Pessoa;
 import br.edu.infnet.sistema.avaliacao.repository.AlunoRepository;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,5 +48,25 @@ public class AlunoService {
         });
         return alunosMap;
     }
+    
+    public Optional<Aluno> findById(Long id) {
 
+        return alunoRepository.findById(id);
+
+    }
+
+    public List<Aluno> findAll() {
+
+        return alunoRepository.findAll();
+
+    }
+
+    public void save(Aluno aluno) {
+        alunoRepository.save(aluno);
+
+    }
+
+    public void remove(Long id) {
+        alunoRepository.deleteById(id);
+    }
 }

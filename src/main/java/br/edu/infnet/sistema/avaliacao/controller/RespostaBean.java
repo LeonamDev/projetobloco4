@@ -1,7 +1,10 @@
 package br.edu.infnet.sistema.avaliacao.controller;
 
+import br.edu.infnet.sistema.avaliacao.AvaliacaoTools;
+import br.edu.infnet.sistema.avaliacao.model.Aluno;
 import br.edu.infnet.sistema.avaliacao.model.Avaliacao;
 import br.edu.infnet.sistema.avaliacao.model.Resposta;
+import br.edu.infnet.sistema.avaliacao.service.AlunoService;
 import br.edu.infnet.sistema.avaliacao.service.AvaliacaoService;
 import br.edu.infnet.sistema.avaliacao.service.RespostaService;
 import java.io.Serializable;
@@ -19,12 +22,16 @@ public class RespostaBean implements Serializable {
 
     Avaliacao avaliacao = new Avaliacao();
     Resposta resposta = new Resposta();
+    Aluno aluno = new Aluno();
     List<Resposta> todasRespostas = new ArrayList<>();
+    
 
     @Autowired
     RespostaService respostaService;
     @Autowired
     AvaliacaoService avaliacaoService;
+    @Autowired
+    AlunoService alunoService;
 
     public void salvar() {
         FacesContext context = FacesContext.getCurrentInstance();
@@ -34,8 +41,9 @@ public class RespostaBean implements Serializable {
                 "Resposta cadastrado com sucesso!"));
     }
     
-    public void prepararCadastro(Long idAvaliacao) {
-        avaliacao = avaliacaoService.findById(idAvaliacao).get();
+    public void prepararCadastro(String idAluno, String idAvaliacao) {        
+        aluno = alunoService.findById(AvaliacaoTools.decrypt(idAluno)).get();
+        avaliacao = avaliacaoService.findById(AvaliacaoTools.decrypt(idAvaliacao)).get();
     }
 
     public Avaliacao getAvaliacao() {
@@ -54,6 +62,14 @@ public class RespostaBean implements Serializable {
         this.resposta = resposta;
     }
 
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
+
     public List<Resposta> getTodasRespostas() {
         return todasRespostas;
     }
@@ -68,5 +84,21 @@ public class RespostaBean implements Serializable {
 
     public void setRespostaService(RespostaService respostaService) {
         this.respostaService = respostaService;
+    }
+
+    public AvaliacaoService getAvaliacaoService() {
+        return avaliacaoService;
+    }
+
+    public void setAvaliacaoService(AvaliacaoService avaliacaoService) {
+        this.avaliacaoService = avaliacaoService;
+    }
+
+    public AlunoService getAlunoService() {
+        return alunoService;
+    }
+
+    public void setAlunoService(AlunoService alunoService) {
+        this.alunoService = alunoService;
     }
 }
