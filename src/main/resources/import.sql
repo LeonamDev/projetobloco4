@@ -14,15 +14,15 @@ INSERT INTO pessoa(cpf,email, genero,nome) VALUES("21873293054","sistemadeavalia
 INSERT INTO pessoa(cpf,email, genero,nome) VALUES("38601572057","sistemadeavaliacaoinfnet@gmail.com", "F", "Snatmoit Xuapu");  
 
 INSERT INTO aluno(matricula, id, turma_id) VALUES("04819816", 1, 1);
-INSERT INTO aluno(matricula, id, turma_id) VALUES("15326529", 1, 1);
-INSERT INTO aluno(matricula, id, turma_id) VALUES("26646873", 1, 1);
-INSERT INTO aluno(matricula, id, turma_id) VALUES("33922756", 1, 1);
-INSERT INTO aluno(matricula, id, turma_id) VALUES("41876712", 1, 1);
-INSERT INTO aluno(matricula, id, turma_id) VALUES("57776106", 1, 1);
-INSERT INTO aluno(matricula, id, turma_id) VALUES("68159242", 1, 1);
-INSERT INTO aluno(matricula, id, turma_id) VALUES("75676872", 1, 1);
-INSERT INTO aluno(matricula, id, turma_id) VALUES("83734809", 1, 1);
-INSERT INTO aluno(matricula, id, turma_id) VALUES("97403688", 1, 1);
+INSERT INTO aluno(matricula, id, turma_id) VALUES("15326529", 2, 1);
+INSERT INTO aluno(matricula, id, turma_id) VALUES("26646873", 3, 1);
+INSERT INTO aluno(matricula, id, turma_id) VALUES("33922756", 4, 1);
+INSERT INTO aluno(matricula, id, turma_id) VALUES("41876712", 5, 1);
+INSERT INTO aluno(matricula, id, turma_id) VALUES("57776106", 6, 1);
+INSERT INTO aluno(matricula, id, turma_id) VALUES("68159242", 7, 1);
+INSERT INTO aluno(matricula, id, turma_id) VALUES("75676872", 8, 1);
+INSERT INTO aluno(matricula, id, turma_id) VALUES("83734809", 9, 1);
+INSERT INTO aluno(matricula, id, turma_id) VALUES("97403688", 10, 1);
 
 INSERT INTO email_abertura(link_avaliacao, texto) VALUES("http://localhost:8084/avaliacao/questionario","Segue o link para você realizar a avaliação");
 
@@ -72,3 +72,23 @@ INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 14);
 INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 15);
 INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 16);
 INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 17);
+
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_TOTALMENTE", 1, 1, 1);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_PARCIALMENTE", 1, 1, 2);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("NAO_CONCORDO_NEM_DISCORDO", 1, 1, 3);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("DISCORDO_PARCIALMENTE", 1, 1, 4);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("SEM_RESPOSTA", 1, 1, 5);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_TOTALMENTE", 1, 1, 6);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_PARCIALMENTE", 1, 1, 7);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_PARCIALMENTE", 1, 1, 8);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("DISCORDO_TOTALMENTE", 1, 1, 9);
+
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_TOTALMENTE", 2, 1, 1);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_PARCIALMENTE", 2, 1, 2);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("NAO_CONCORDO_NEM_DISCORDO", 2, 1, 3);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("DISCORDO_PARCIALMENTE", 2, 1, 4);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("SEM_RESPOSTA", 2, 1, 5);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_TOTALMENTE", 2, 1, 6);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_PARCIALMENTE", 2, 1, 7);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_PARCIALMENTE", 2, 1, 8);
+INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("DISCORDO_TOTALMENTE", 2, 1, 9);

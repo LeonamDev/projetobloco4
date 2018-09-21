@@ -5,7 +5,7 @@
  */
 package br.edu.infnet.sistema.avaliacao.export;
 
-import br.edu.infnet.sistema.avaliacao.service.QuestaoService;
+import br.edu.infnet.sistema.avaliacao.service.RespostaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,14 +20,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class Export {
 
 @Autowired
-QuestaoService questaoService;
+RespostaService respostaService;
 
 /**
  * Handle request to download an Excel document
  */
-@RequestMapping(value = "/download", method = RequestMethod.GET)
+@RequestMapping(value = "/avaliacao/download", method = RequestMethod.GET)
 public String download(Model model) {
-    model.addAttribute("questoes", questaoService.findAll());
+    model.addAttribute("respostas", respostaService.findAll());
+
     return "";
 }
 }
