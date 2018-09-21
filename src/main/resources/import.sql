@@ -2,33 +2,35 @@ INSERT INTO curso(codigo, nome) VALUES("ENGJAVA", "ENGENHERIA DE SOFTWARE COM JA
 INSERT INTO bloco(codigo, nome, curso_id) VALUES("JAVAWEB","JAVA WEB E SERVICOS",1);
 INSERT INTO modulo(codigo, nome, bloco_id) VALUES ("SERVICOSJAVA", "SERVIÇOS COM TECNOLOGIA JAVA", 1);
 INSERT INTO turma(periodo_fim, periodo_inicio, modulo_id) VALUES('2018-08-09', '2019-08-09', 1);
-INSERT INTO pessoa(cpf,email, genero,nome) VALUES("14915623263","sistemadeavaliacaoinfnet@gmail.com", "M", "Steve Wozniak");  
+
+INSERT INTO pessoa(cpf,email, genero,nome) VALUES("29847771073","sistemadeavaliacaoinfnet@gmail.com", "M", "Steve Wozniak");  
+INSERT INTO pessoa(cpf,email, genero,nome) VALUES("34235111094","sistemadeavaliacaoinfnet@gmail.com", "M", "Atuharz Anfigal");  
+INSERT INTO pessoa(cpf,email, genero,nome) VALUES("00219448060","sistemadeavaliacaoinfnet@gmail.com", "F", "Headan Bughfyeurn");  
+INSERT INTO pessoa(cpf,email, genero,nome) VALUES("76305634009","sistemadeavaliacaoinfnet@gmail.com", "F", "Pifuadak Narhe");  
+INSERT INTO pessoa(cpf,email, genero,nome) VALUES("41714464067","sistemadeavaliacaoinfnet@gmail.com", "M", "Olpaesgdub Xyoci");  
+INSERT INTO pessoa(cpf,email, genero,nome) VALUES("00860412075","sistemadeavaliacaoinfnet@gmail.com", "M", "Mukgum Winou");  
+INSERT INTO pessoa(cpf,email, genero,nome) VALUES("41570595062","sistemadeavaliacaoinfnet@gmail.com", "F", "Rigaborn Wervilli");  
+INSERT INTO pessoa(cpf,email, genero,nome) VALUES("21873293054","sistemadeavaliacaoinfnet@gmail.com", "M", "Keoes Suamakh");  
+INSERT INTO pessoa(cpf,email, genero,nome) VALUES("38601572057","sistemadeavaliacaoinfnet@gmail.com", "F", "Snatmoit Xuapu");  
+
+INSERT INTO aluno(matricula, id, turma_id) VALUES("04819816", 1, 1);
 INSERT INTO aluno(matricula, id, turma_id) VALUES("15326529", 1, 1);
+INSERT INTO aluno(matricula, id, turma_id) VALUES("26646873", 1, 1);
+INSERT INTO aluno(matricula, id, turma_id) VALUES("33922756", 1, 1);
+INSERT INTO aluno(matricula, id, turma_id) VALUES("41876712", 1, 1);
+INSERT INTO aluno(matricula, id, turma_id) VALUES("57776106", 1, 1);
+INSERT INTO aluno(matricula, id, turma_id) VALUES("68159242", 1, 1);
+INSERT INTO aluno(matricula, id, turma_id) VALUES("75676872", 1, 1);
+INSERT INTO aluno(matricula, id, turma_id) VALUES("83734809", 1, 1);
+INSERT INTO aluno(matricula, id, turma_id) VALUES("97403688", 1, 1);
+
 INSERT INTO email_abertura(link_avaliacao, texto) VALUES("http://localhost:8084/avaliacao/questionario","Segue o link para você realizar a avaliação");
-INSERT INTO avaliacao(codigo_avaliacao,inicio_avaliacao,termino_avaliacao,turma_id, email_abertura_id) VALUES("45ASD45A","2018-09-08 17:33:35.133", "2018-10-08 17:33:35.133", 1, 1);
 
-INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_CONTEUDO_INFRA_ESTRUTUTA_MODULO", '2018-09-15', "Questao infra 1");
-INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_CONTEUDO_INFRA_ESTRUTUTA_MODULO", '2018-09-15', "Questao infra 2");
-INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_CONTEUDO_INFRA_ESTRUTUTA_MODULO", '2018-09-15', "Questao infra 3");
-INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_GERAL_POS_GRADUACAO", '2018-09-15', "Questao geral 1");
-INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_GERAL_POS_GRADUACAO", '2018-09-15', "Questao geral 2");
-INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_GERAL_POS_GRADUACAO", '2018-09-15', "Questao geral 3");
-INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_PROFESSOR_MODULO", '2018-09-15', "Questao professor 1");
-INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_PROFESSOR_MODULO", '2018-09-15', "Questao professor 2");
-INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_PROFESSOR_MODULO", '2018-09-15', "Questao professor 3");
-
-INSERT INTO questionario(identificador) VALUES("TESTE01");
-
-INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 1);
-INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 2);
-INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 3);
-INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 4);
-INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 5);
-INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 6);
-INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 7);
-INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 8);
-INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 9);
-
+INSERT INTO avaliacao(codigo_avaliacao,inicio_avaliacao,termino_avaliacao,turma_id, email_abertura_id) VALUES("15ASD45A","2018-05-08 17:33:35.133", "2018-10-08 17:33:35.133", 1, 1);
+INSERT INTO avaliacao(codigo_avaliacao,inicio_avaliacao,termino_avaliacao,turma_id, email_abertura_id) VALUES("25ASD45A","2018-06-08 17:33:35.133", "2018-10-08 17:33:35.133", 1, 1);
+INSERT INTO avaliacao(codigo_avaliacao,inicio_avaliacao,termino_avaliacao,turma_id, email_abertura_id) VALUES("35ASD45A","2018-07-08 17:33:35.133", "2018-10-08 17:33:35.133", 1, 1);
+INSERT INTO avaliacao(codigo_avaliacao,inicio_avaliacao,termino_avaliacao,turma_id, email_abertura_id) VALUES("45ASD45A","2018-08-08 17:33:35.133", "2018-10-08 17:33:35.133", 1, 1);
+INSERT INTO avaliacao(codigo_avaliacao,inicio_avaliacao,termino_avaliacao,turma_id, email_abertura_id) VALUES("55ASD45A","2018-09-08 17:33:35.133", "2018-10-08 17:33:35.133", 1, 1);
 
 INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_GERAL_POS_GRADUACAO", '2018-09-15', "1. O professor contribuiu para o meu aprendizado.");
 INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_GERAL_POS_GRADUACAO", '2018-09-15', "2. O professor é atencioso e esteve disponível para tirar dúvidas.");
@@ -48,8 +50,17 @@ INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_CONTEU
 INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_CONTEUDO_INFRA_ESTRUTUTA_MODULO", '2018-09-15', "4. O acervo da biblioteca atendeu as necessidades desse módulo.");
 INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_CONTEUDO_INFRA_ESTRUTUTA_MODULO", '2018-09-15', "5. A configuração do(s) computadore(s) e equipamentos da sala de aula e a qualidade do suporte foi apropriada.");
 
-
 INSERT INTO questionario(identificador) VALUES("Avaliação - Alunos da Graduação");
 INSERT INTO questionario(identificador) VALUES("Avaliação - Alunos da Pós-Graduação");
 INSERT INTO questionario(identificador) VALUES("Avaliação - Alunos da Extensão");
 INSERT INTO questionario(identificador) VALUES("Avaliação - Alunos do Politécnico");
+
+INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 1);
+INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 2);
+INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 3);
+INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 4);
+INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 5);
+INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 6);
+INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 7);
+INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 8);
+INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 9);
