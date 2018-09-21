@@ -9,11 +9,12 @@
     <f:metadata>
         <f:viewAction action="#{avaliacaoBean.prepararCadastro}" />
     </f:metadata>
-    <ui:define name="titulo">Cadastro de Avaliação</ui:define>
+    <ui:define name="titulo">Cadastro de Avaliações</ui:define>
     <ui:define name="corpo">
         <div class="container">
             <h:form>
                 <p:messages/>
+                <h3>Avaliação</h3>
                 <h:panelGrid columns="2">
                     <p:outputLabel value="Código" />
                     <p:inputText id="codigo" size="12" value="#{avaliacaoBean.avaliacao.codigoAvaliacao}" label="Nome"/>

@@ -1,6 +1,5 @@
 package br.edu.infnet.sistema.avaliacao.controller;
 
-import br.edu.infnet.sistema.avaliacao.AvaliacaoTools;
 import br.edu.infnet.sistema.avaliacao.enuns.Categoria;
 import br.edu.infnet.sistema.avaliacao.model.Questao;
 import br.edu.infnet.sistema.avaliacao.service.QuestaoService;
@@ -26,7 +25,6 @@ public class QuestaoBean implements Serializable {
 
     public void consultar() {
         this.todasQuestoes = questaoService.findAll();
-
     }
 
     public void remover(Long id) {
@@ -35,13 +33,12 @@ public class QuestaoBean implements Serializable {
         this.consultar();
         context.addMessage(null, new FacesMessage(
                 "Questão removida com sucesso!"));
-
     }
 
     public String editar(Questao questao) {
+        prepararCadastro();
         this.questao = questao;
         return "/questao/cadastraQuestao.xhtml";
-
     }
 
     public void salvar() {
@@ -53,7 +50,11 @@ public class QuestaoBean implements Serializable {
         this.questao = new Questao();
         context.addMessage(null, new FacesMessage(
                 "Questão cadastrada com sucesso!"));
+    }
 
+    public void prepararCadastro() {
+        questao = new Questao();
+        this.todasQuestoes = questaoService.findAll();
     }
 
     public Questao getQuestao() {

@@ -7,27 +7,23 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
     <f:metadata> 
-        <f:viewAction action="#{questaoBean.consultar()}"></f:viewAction>"
+        <f:viewAction action="#{emailAberturaBean.consultar()}"></f:viewAction>"
     </f:metadata>
 
-    <ui:define name="titulo">Consulta de Questões</ui:define>
+    <ui:define name="titulo">Consulta de Emails de Abertura</ui:define>
     <ui:define name="corpo">
         <div class="container">
             <h:form>
                 <p:messages/>
-                <p:dataTable id="questoes" var="questao" value="#{questaoBean.todasQuestoes}">
-                    <p:column headerText="Descrição" style="width:200px;">
-                        <h:outputText value="#{questao.descricaoQuestao}" />
+                <p:dataTable id="emailsAbertura" var="emailAbertura" value="#{emailAberturaBean.todosEmailsAbertura}">
+                    <p:column headerText="Id" style="width:200px;">
+                        <h:outputText value="#{emailAbertura.id}" />
                     </p:column>
-                    <p:column headerText="Categoria" style="width:150px;">
-                        <h:outputText value="#{questao.categoria.value}" />
+                    <p:column headerText="linkAvaliacao" style="width:150px;">
+                        <h:outputText value="#{emailAbertura.linkAvaliacao}" />
                     </p:column>
-                    <p:column headerText="Data de Criação" style="width:40px;">
-                        <div style="display:flex;justify-content:center;align-items:center;">
-                            <h:outputText value="#{questao.dataCriacao}" >
-                                <!--<f:convertDateTime pattern="dd/MM/yyyy HH:mm" />-->
-                            </h:outputText>
-                        </div>
+                    <p:column headerText="Texto" style="width:40px;">
+                        <h:outputText value="#{emailAbertura.texto}" />
                     </p:column>
                     <p:column  style="width:30px;">
                         <f:facet name="header">
@@ -35,9 +31,9 @@
                         </f:facet>
                         <div style="display:flex;justify-content:center;align-items:center;">
                             <p:commandButton icon="ui-icon-pencil" title="Editar"  
-                                             action="#{questaoBean.editar(questao)}" />
+                                             action="#{emailAberturaBean.editar(emailAbertura)}" />
                             <p:commandButton icon="ui-icon-trash" title="Remever"
-                                             action="#{questaoBean.remover(questao.id)}" />
+                                             action="#{emailAberturaBean.remover(emailAbertura.id)}" />
                         </div>
                     </p:column>
                 </p:dataTable>

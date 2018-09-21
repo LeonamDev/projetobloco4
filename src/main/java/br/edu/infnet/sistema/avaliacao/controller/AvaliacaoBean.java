@@ -53,7 +53,7 @@ public class AvaliacaoBean implements Serializable {
     public String editar(Avaliacao avaliacao) {
         prepararCadastro();
         this.avaliacao = avaliacao;
-        return "cadastraAvaliacao.xhtml";
+        return "/avaliacao/cadastraAvaliacao.xhtml";
 
     }
 
