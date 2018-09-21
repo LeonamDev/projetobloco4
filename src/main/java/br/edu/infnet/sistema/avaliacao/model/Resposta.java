@@ -1,5 +1,6 @@
 package br.edu.infnet.sistema.avaliacao.model;
 
+import br.edu.infnet.sistema.avaliacao.enuns.GrauConformidadeLikert;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;

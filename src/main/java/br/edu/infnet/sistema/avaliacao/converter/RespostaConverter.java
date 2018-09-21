@@ -1,41 +1,35 @@
 package br.edu.infnet.sistema.avaliacao.converter;
 
-import br.edu.infnet.sistema.avaliacao.model.Turma;
-import br.edu.infnet.sistema.avaliacao.service.TurmaService;
-import java.util.Optional;
+import br.edu.infnet.sistema.avaliacao.enuns.GrauConformidadeLikert;
+import br.edu.infnet.sistema.avaliacao.model.Resposta;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
  * @author luis
  */
 @Component
-public class TurmaConverter implements Converter {
+public class RespostaConverter implements Converter {
 
-    @Autowired
-    TurmaService turmaService;
-    
     @Override
     public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
-        Optional<Turma> retorno = null;
+        Resposta retorno = null;
 
         if (value != null && !"".equals(value)) {
-
-            retorno = turmaService.findById(new Long(value));
-
+            
+            retorno = new Resposta();
+            retorno.setGrauConformidade(GrauConformidadeLikert.valueOf(Integer.valueOf(value)).get());
         }
-        return retorno.orElse(null);
+        return retorno;
     }
 
     @Override
     public String getAsString(FacesContext fc, UIComponent uic, Object value) {
         if (value != null) {
-            return Long.toString(((Turma) value).getId());
+            return Long.toString(((Resposta) value).getId());
         }
         return null;
     }
-    
 }

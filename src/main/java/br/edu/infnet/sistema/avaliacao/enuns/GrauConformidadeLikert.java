@@ -1,5 +1,8 @@
 package br.edu.infnet.sistema.avaliacao.enuns;
 
+import java.util.Arrays;
+import java.util.Optional;
+
 
 public enum GrauConformidadeLikert {
     
@@ -18,5 +21,11 @@ public enum GrauConformidadeLikert {
 
     public int getId() {
         return id;
+    }
+    
+    public static Optional<GrauConformidadeLikert> valueOf(int value) {
+        return Arrays.stream(values())
+            .filter(grauConformidadeLikert -> grauConformidadeLikert.id == value)
+            .findFirst();
     }
 }

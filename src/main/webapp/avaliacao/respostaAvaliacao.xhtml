@@ -24,51 +24,52 @@
             <br/><br/>
             <h:form>
                 <p:messages/>
-                <p:dataTable id="questoesGeral" var="questao" value="#{respostaBean.questoesGeral}">
+                <p:dataTable id="questoesGeral" var="questaoResposta" value="#{respostaBean.questoesRepostaGeral}">
                     <p:column headerText="Avaliação geral da Pós-Graduação:" style="text-align:left">
-                        <h:outputText value="#{questao.descricaoQuestao}" />
+                        <h:outputText value="#{questaoResposta.questao.descricaoQuestao}" />
                     </p:column>
                     <p:column>
-                        <p:selectOneMenu value="" style="width:250px">
-                            <f:selectItem itemLabel="" itemValue="0" />
-                            <f:selectItem itemLabel="Concordo Totalmente" itemValue="1" />
-                            <f:selectItem itemLabel="Concordo" itemValue="2" />
-                            <f:selectItem itemLabel="Não Concordo nem Discordo" itemValue="3" />
-                            <f:selectItem itemLabel="Discordo Totalmente" itemValue="4" />
-                            <f:selectItem itemLabel="Não sei Avaliar" itemValue="5" />
+                        <p:selectOneMenu value="#{respostaBean.respostasForm}" style="width:250px">
+                            <f:selectItem itemLabel="" itemValue="" />
+                            <f:selectItem itemLabel="Concordo Totalmente" itemValue="0" />
+                            <f:selectItem itemLabel="Concordo" itemValue="1" />
+                            <f:selectItem itemLabel="Não Concordo nem Discordo" itemValue="2" />
+                            <f:selectItem itemLabel="Discordo Totalmente" itemValue="3" />
+                            <f:selectItem itemLabel="Não sei Avaliar" itemValue="4" />
                         </p:selectOneMenu>
                     </p:column>
                 </p:dataTable>
-                <p:dataTable id="questoesProfessor" var="questao" value="#{respostaBean.questoesProfessor}">
+                <p:dataTable id="questoesProfessor" var="questaoResposta" value="#{respostaBean.questoesRepostaProfessor}">
                     <p:column headerText="Avaliação do professor no módulo:" style="text-align:left">
-                        <h:outputText value="#{questao.descricaoQuestao}" />
+                        <h:outputText value="#{questaoResposta.questao.descricaoQuestao}" />
                     </p:column>
                     <p:column>
-                        <p:selectOneMenu value="" style="width:250px">
-                            <f:selectItem itemLabel="" itemValue="0" />
-                            <f:selectItem itemLabel="Concordo Totalmente" itemValue="1" />
-                            <f:selectItem itemLabel="Concordo" itemValue="2" />
-                            <f:selectItem itemLabel="Não Concordo nem Discordo" itemValue="3" />
-                            <f:selectItem itemLabel="Discordo Totalmente" itemValue="4" />
-                            <f:selectItem itemLabel="Não sei Avaliar" itemValue="5" />
+                        <p:selectOneMenu value="#{respostaBean.respostasForm}" style="width:250px">
+                            <f:selectItem itemLabel="" itemValue="" />
+                            <f:selectItem itemLabel="Concordo Totalmente" itemValue="0" />
+                            <f:selectItem itemLabel="Concordo" itemValue="1" />
+                            <f:selectItem itemLabel="Não Concordo nem Discordo" itemValue="2" />
+                            <f:selectItem itemLabel="Discordo Totalmente" itemValue="3" />
+                            <f:selectItem itemLabel="Não sei Avaliar" itemValue="4" />
                         </p:selectOneMenu>
                     </p:column>
                 </p:dataTable>
-                <p:dataTable id="questoesConteudo" var="questao" value="#{respostaBean.questoesConteudo}">
+                <p:dataTable id="questoesConteudo" var="questaoResposta" value="#{respostaBean.questoesRepostaConteudo}">
                     <p:column headerText="Avaliação de conteúdo e infra-estrutura no módulo:" style="text-align:left">
-                        <h:outputText value="#{questao.descricaoQuestao}" />
+                        <h:outputText value="#{questaoResposta.questao.descricaoQuestao}" />
                     </p:column>
                     <p:column>
-                        <p:selectOneMenu value="" style="width:250px">
-                            <f:selectItem itemLabel="" itemValue="0" />
-                            <f:selectItem itemLabel="Concordo Totalmente" itemValue="1" />
-                            <f:selectItem itemLabel="Concordo" itemValue="2" />
-                            <f:selectItem itemLabel="Não Concordo nem Discordo" itemValue="3" />
-                            <f:selectItem itemLabel="Discordo Totalmente" itemValue="4" />
-                            <f:selectItem itemLabel="Não sei Avaliar" itemValue="5" />
+                        <p:selectOneMenu value="#{respostaBean.respostasForm}" style="width:250px">
+                            <f:selectItem itemLabel="" itemValue="" />
+                            <f:selectItem itemLabel="Concordo Totalmente" itemValue="0" />
+                            <f:selectItem itemLabel="Concordo" itemValue="1" />
+                            <f:selectItem itemLabel="Não Concordo nem Discordo" itemValue="2" />
+                            <f:selectItem itemLabel="Discordo Totalmente" itemValue="3" />
+                            <f:selectItem itemLabel="Não sei Avaliar" itemValue="4" />
                         </p:selectOneMenu>
                     </p:column>
                 </p:dataTable>
+                <h:commandButton value="Salvar" action="#{respostaBean.salvar()}" />
             </h:form>
         </div>
     </ui:define>    

@@ -26,9 +26,10 @@ public class RespostaBean implements Serializable {
     Resposta resposta = new Resposta();
     Aluno aluno = new Aluno();
     List<Resposta> todasRespostas = new ArrayList<>();
-    List<Questao> questoesGeral = new ArrayList<>();
-    List<Questao> questoesProfessor = new ArrayList<>();
-    List<Questao> questoesConteudo = new ArrayList<>();
+    List<Resposta> questoesRepostaGeral = new ArrayList<>();
+    List<Resposta> questoesRepostaProfessor = new ArrayList<>();
+    List<Resposta> questoesRepostaConteudo = new ArrayList<>();
+    List<Object> respostasForm = new ArrayList<>();
 
     @Autowired
     RespostaService respostaService;
@@ -49,21 +50,31 @@ public class RespostaBean implements Serializable {
         aluno = alunoService.findById(AvaliacaoTools.decrypt(idAluno)).get();
         avaliacao = avaliacaoService.findById(AvaliacaoTools.decrypt(idAvaliacao)).get();
         
-        questoesGeral = selecionaQuestoes(Categoria.AVALIACAO_GERAL_POS_GRADUACAO);
-        questoesProfessor = selecionaQuestoes(Categoria.AVALIACAO_PROFESSOR_MODULO);
-        questoesConteudo = selecionaQuestoes(Categoria.AVALIACAO_CONTEUDO_INFRA_ESTRUTUTA_MODULO);
+        questoesRepostaGeral = selecionaQuestoesReposta(Categoria.AVALIACAO_GERAL_POS_GRADUACAO);
+        questoesRepostaProfessor = selecionaQuestoesReposta(Categoria.AVALIACAO_PROFESSOR_MODULO);
+        questoesRepostaConteudo = selecionaQuestoesReposta(Categoria.AVALIACAO_CONTEUDO_INFRA_ESTRUTUTA_MODULO);
     }
     
-    private List<Questao> selecionaQuestoes(Categoria cat) {
-        List<Questao> questoes = new ArrayList<>();
+    private List<Resposta> selecionaQuestoesReposta(Categoria cat) {
+        List<Resposta> questoesResposta = new ArrayList<>();
+        Resposta resp;
         
         for(Questao q : avaliacao.getQuestionario().getQuestoes()) {
             if(q.getCategoria() == cat) {
-                questoes.add(q);
+                resp = new Resposta();
+                resp.setQuestao(q);
+                resp.setAluno(aluno);
+                resp.setAvaliacao(avaliacao);
+                questoesResposta.add(resp);
             }
         }
         
-        return questoes;
+        if(questoesResposta.isEmpty()) {
+            return null;
+        }
+        else {
+            return questoesResposta;
+        }
     }
 
     public Avaliacao getAvaliacao() {
@@ -98,30 +109,38 @@ public class RespostaBean implements Serializable {
         this.todasRespostas = todasRespostas;
     }
 
-    public List<Questao> getQuestoesGeral() {
-        return questoesGeral;
+    public List<Resposta> getQuestoesRepostaGeral() {
+        return questoesRepostaGeral;
     }
 
-    public void setQuestoesGeral(List<Questao> questoesGeral) {
-        this.questoesGeral = questoesGeral;
+    public void setQuestoesRepostaGeral(List<Resposta> questoesRepostaGeral) {
+        this.questoesRepostaGeral = questoesRepostaGeral;
     }
 
-    public List<Questao> getQuestoesProfessor() {
-        return questoesProfessor;
+    public List<Resposta> getQuestoesRepostaProfessor() {
+        return questoesRepostaProfessor;
     }
 
-    public void setQuestoesProfessor(List<Questao> questoesProfessor) {
-        this.questoesProfessor = questoesProfessor;
+    public void setQuestoesRepostaProfessor(List<Resposta> questoesRepostaProfessor) {
+        this.questoesRepostaProfessor = questoesRepostaProfessor;
     }
 
-    public List<Questao> getQuestoesConteudo() {
-        return questoesConteudo;
+    public List<Resposta> getQuestoesRepostaConteudo() {
+        return questoesRepostaConteudo;
     }
 
-    public void setQuestoesConteudo(List<Questao> questoesConteudo) {
-        this.questoesConteudo = questoesConteudo;
+    public void setQuestoesRepostaConteudo(List<Resposta> questoesRepostaConteudo) {
+        this.questoesRepostaConteudo = questoesRepostaConteudo;
     }
 
+    public List<Object> getRespostasForm() {
+        return respostasForm;
+    }
+
+    public void setRespostasForm(List<Object> respostasForm) {
+        this.respostasForm = respostasForm;
+    }
+    
     public RespostaService getRespostaService() {
         return respostaService;
     }
