@@ -25,7 +25,7 @@ RespostaService respostaService;
 /**
  * Handle request to download an Excel document
  */
-@RequestMapping(value = "/download", method = RequestMethod.GET)
+@RequestMapping(value = "/avaliacao/download", method = RequestMethod.GET)
 public String download(Model model) {
     model.addAttribute("respostas", respostaService.findAll());
 

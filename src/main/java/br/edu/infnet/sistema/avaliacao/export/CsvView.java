@@ -45,7 +45,7 @@ protected void buildCsvDocument(Map<String, Object> model, HttpServletRequest re
     x = 0; 
     z = 1;
     int n = respostas.size();
-    header.add("CodAvalição, Matrícula, Nome");
+    header.add("CodAvalição, Matrícula, Aluno");
 
     for (int i=0; i<n; i=x) {
 

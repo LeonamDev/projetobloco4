@@ -144,4 +144,12 @@ public class AvaliacaoBean implements Serializable {
     public void setEmailaberturaService(EmailAberturaService emailaberturaService) {
         this.emailaberturaService = emailaberturaService;
     }
+    
+    public String csv(Long id) {
+        //prepararCadastro();
+       // this.avaliacao = avaliacao;
+        System.out.println("http");
+        return "download";
+  
+    }
 }
