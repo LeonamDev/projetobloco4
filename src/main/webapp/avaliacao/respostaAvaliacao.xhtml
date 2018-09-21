@@ -29,7 +29,7 @@
                         <h:outputText value="#{questaoResposta.questao.descricaoQuestao}" />
                     </p:column>
                     <p:column>
-                        <p:selectOneMenu value="#{respostaBean.respostasForm}" style="width:250px">
+                        <p:selectOneMenu value="#{respostaBean.respostasForm}" style="width:250px" converter="#{respostaConverter}">
                             <f:selectItem itemLabel="" itemValue="" />
                             <f:selectItem itemLabel="Concordo Totalmente" itemValue="0" />
                             <f:selectItem itemLabel="Concordo" itemValue="1" />
@@ -44,7 +44,7 @@
                         <h:outputText value="#{questaoResposta.questao.descricaoQuestao}" />
                     </p:column>
                     <p:column>
-                        <p:selectOneMenu value="#{respostaBean.respostasForm}" style="width:250px">
+                        <p:selectOneMenu value="#{respostaBean.respostasForm}" style="width:250px" converter="#{respostaConverter}">
                             <f:selectItem itemLabel="" itemValue="" />
                             <f:selectItem itemLabel="Concordo Totalmente" itemValue="0" />
                             <f:selectItem itemLabel="Concordo" itemValue="1" />
@@ -59,7 +59,7 @@
                         <h:outputText value="#{questaoResposta.questao.descricaoQuestao}" />
                     </p:column>
                     <p:column>
-                        <p:selectOneMenu value="#{respostaBean.respostasForm}" style="width:250px">
+                        <p:selectOneMenu value="#{respostaBean.respostasForm}" style="width:250px" converter="#{respostaConverter}">
                             <f:selectItem itemLabel="" itemValue="" />
                             <f:selectItem itemLabel="Concordo Totalmente" itemValue="0" />
                             <f:selectItem itemLabel="Concordo" itemValue="1" />
