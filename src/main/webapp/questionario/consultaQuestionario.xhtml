@@ -31,6 +31,8 @@
                         <h:outputText value="Ações"/>
                     </f:facet>
                     <div style="display:flex;justify-content:center;align-items:center;">
+                        <p:commandButton icon=" ui-icon-document" title="Listar Questões"  
+                                         action="#{questionarioBean.consultarQuestoesQuestionario(questionario)}" />
                         <p:commandButton icon="ui-icon-pencil" title="Editar"  
                                          action="#{questionarioBean.editar(questionario)}" />
                         <p:commandButton icon="ui-icon-trash" title="Remever"

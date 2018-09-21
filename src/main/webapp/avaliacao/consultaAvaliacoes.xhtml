@@ -11,7 +11,7 @@
         <f:viewAction action="#{avaliacaoBean.consultar()}"></f:viewAction>"
     </f:metadata>
 
-    <ui:define name="titulo">Consulta de Avaliação</ui:define>
+    <ui:define name="titulo">Consulta de Avaliações</ui:define>
     <ui:define name="corpo">
         <div class="container">
             <h:form>
@@ -39,11 +39,6 @@
                         <f:facet name="header">
                             <h:outputText value="Ações"/>
                         </f:facet>
-<!--                            <h:commandButton value="Editar"
-                                         action="#{avaliacaoBean.editar(avaliacao)}" />
-                                <h:commandButton value="Remover"
-                                         action="#{avaliacaoBean.remover(avaliacao.id)}" />
--->
                         <div style="display:flex;justify-content:center;align-items:center;">
                             <p:commandButton icon="ui-icon-pencil" title="Editar"  
                                              action="#{avaliacaoBean.editar(avaliacao)}" />

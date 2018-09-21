@@ -1,5 +1,6 @@
 package br.edu.infnet.sistema.avaliacao.controller;
 
+import br.edu.infnet.sistema.avaliacao.model.Questao;
 import br.edu.infnet.sistema.avaliacao.model.Questionario;
 import br.edu.infnet.sistema.avaliacao.service.QuestionarioService;
 import java.io.Serializable;
@@ -17,6 +18,7 @@ public class QuestionarioBean implements Serializable {
     
     Questionario questionario = new Questionario();
     List<Questionario> todosQuestionarios = new ArrayList<>();
+    List<Questao> todasQuestoesQuestionario = new ArrayList<>();
 
     @Autowired
     QuestionarioService questionarioService;
@@ -51,6 +53,17 @@ public class QuestionarioBean implements Serializable {
 
     }
 
+    public void prepararCadastro() {
+        questionario = new Questionario();
+        this.todosQuestionarios = questionarioService.findAll();
+    }
+    
+    public String consultarQuestoesQuestionario (Questionario questionario) {
+        this.todasQuestoesQuestionario = this.questionario.getQuestoes();
+        return "consultarQuestoesQuestionario.xhtml";
+    
+    }
+    
     public Questionario getQuestionario() {
         return questionario;
     }
@@ -63,4 +76,9 @@ public class QuestionarioBean implements Serializable {
         return todosQuestionarios;
     }
 
+    public List<Questao> getTodasQuestoesQuestionario() {
+        return todasQuestoesQuestionario;
+    }
+
+    
 }
