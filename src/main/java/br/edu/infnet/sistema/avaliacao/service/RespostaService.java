@@ -21,7 +21,7 @@ public class RespostaService implements Serializable {
         return respostaRepository.findById(id);
 
     }
-
+      
     public List<Resposta> findAll() {
 
         return respostaRepository.findAll();
