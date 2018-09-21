@@ -16,13 +16,15 @@
             <h:form>
                 <p:messages/>
                 <p:dataTable id="emailsAbertura" var="emailAbertura" value="#{emailAberturaBean.todosEmailsAbertura}">
-                    <p:column headerText="Id" style="width:200px;">
-                        <h:outputText value="#{emailAbertura.id}" />
+                    <p:column headerText="Id" style="width:5px;">
+                        <div style="display:flex;justify-content:center;align-items:center;">
+                            <h:outputText value="#{emailAbertura.id}" />
+                        </div>
                     </p:column>
-                    <p:column headerText="linkAvaliacao" style="width:150px;">
+                    <p:column headerText="Link da Avaliação" style="width:100px;">
                         <h:outputText value="#{emailAbertura.linkAvaliacao}" />
                     </p:column>
-                    <p:column headerText="Texto" style="width:40px;">
+                    <p:column headerText="Texto do Email" style="width:200px;">
                         <h:outputText value="#{emailAbertura.texto}" />
                     </p:column>
                     <p:column  style="width:30px;">
