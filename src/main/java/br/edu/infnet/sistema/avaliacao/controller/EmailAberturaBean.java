@@ -37,8 +37,9 @@ public class EmailAberturaBean implements Serializable {
     }
 
     public String editar(EmailAbertura emailAbertura) {
+        prepararCadastro();
         this.emailAbertura = emailAbertura;
-        return "CadastraEmailAbertura.xhtml";
+        return "cadastraEmailAbertura.xhtml";
 
     }
 
@@ -52,6 +53,11 @@ public class EmailAberturaBean implements Serializable {
 
     }
 
+    public void prepararCadastro() {
+        emailAbertura = new EmailAbertura();
+        this.todosEmailsAbertura = emailAberturaService.findAll();
+    }
+    
     public EmailAbertura getEmailAbertura() {
         return emailAbertura;
     }
