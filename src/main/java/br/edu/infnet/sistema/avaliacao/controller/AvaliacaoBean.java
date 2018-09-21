@@ -146,9 +146,6 @@ public class AvaliacaoBean implements Serializable {
     }
     
     public String csv(Long id) {
-        //prepararCadastro();
-       // this.avaliacao = avaliacao;
-        System.out.println("http");
         return "download";
   
     }
