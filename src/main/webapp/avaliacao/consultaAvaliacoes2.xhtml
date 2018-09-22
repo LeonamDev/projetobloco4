@@ -45,7 +45,7 @@
                             <p:commandButton icon="ui-icon-trash" title="Remever"
                                              action="#{avaliacaoBean.remover(avaliacao.id)}" />
                             <p:commandButton title="CSV"
-                                             action="#{export.download(model)}" />
+                                             action="#{export.download(avaliacao.id, model)}" />
                         </div>
                     </p:column>
                 </p:dataTable>
