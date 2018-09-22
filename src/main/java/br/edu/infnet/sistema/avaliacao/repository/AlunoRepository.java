@@ -23,5 +23,8 @@ public interface AlunoRepository extends JpaRepository<Aluno, Long> {
             + "ON av.turma_id = t.id INNER JOIN email_abertura as e ON e.id = av.email_abertura_id "
             + "WHERE av.enviado = 0 and av.inicio_avaliacao <= ?1", nativeQuery = true)
     List<Object[]> findByMissingEvaluation(java.sql.Timestamp currentDateTime);
+    
+     @Query(value = "SELECT * FROM resposta where aluno_id = ?1 and avaliacao_id = ?2", nativeQuery = true)
+    List<Object[]> StudentAlreadyAnswered(Long alunoID, Long avaliacaoID);
    
 }

@@ -69,4 +69,11 @@ public class AlunoService {
     public void remove(Long id) {
         alunoRepository.deleteById(id);
     }
+    
+    public Boolean StudentAlreadyAnswered(Long alunoID, Long avaliacaoID) {
+        List<Object[]> avaliacao = alunoRepository.StudentAlreadyAnswered(alunoID, avaliacaoID); 
+        
+        return avaliacao.size() > 0 ? true : false;
+       
+    }
 }

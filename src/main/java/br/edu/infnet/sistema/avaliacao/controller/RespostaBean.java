@@ -9,9 +9,12 @@ import br.edu.infnet.sistema.avaliacao.model.Resposta;
 import br.edu.infnet.sistema.avaliacao.service.AlunoService;
 import br.edu.infnet.sistema.avaliacao.service.AvaliacaoService;
 import br.edu.infnet.sistema.avaliacao.service.RespostaService;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,13 +49,27 @@ public class RespostaBean implements Serializable {
                 "Resposta cadastrado com sucesso!"));
     }
     
-    public void prepararCadastro(String idAluno, String idAvaliacao) {        
-        aluno = alunoService.findById(AvaliacaoTools.decrypt(idAluno)).get();
-        avaliacao = avaliacaoService.findById(AvaliacaoTools.decrypt(idAvaliacao)).get();
-        
-        questoesRepostaGeral = selecionaQuestoesReposta(Categoria.AVALIACAO_GERAL_POS_GRADUACAO);
-        questoesRepostaProfessor = selecionaQuestoesReposta(Categoria.AVALIACAO_PROFESSOR_MODULO);
-        questoesRepostaConteudo = selecionaQuestoesReposta(Categoria.AVALIACAO_CONTEUDO_INFRA_ESTRUTUTA_MODULO);
+    public void prepararCadastro(String idAluno, String idAvaliacao) {   
+        Long alunoID = AvaliacaoTools.decrypt(idAluno);
+        Long avaliacaoID = AvaliacaoTools.decrypt(idAvaliacao); 
+
+        if (alunoService.StudentAlreadyAnswered(alunoID,avaliacaoID)){
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage(
+               "Você já respondeu esta avaliação. Obrigado!"));
+            try { 
+                FacesContext.getCurrentInstance()
+                        .getExternalContext().redirect("notfound.xhtml");
+            } catch (IOException ex) {
+                Logger.getLogger(RespostaBean.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{  
+            aluno = alunoService.findById(alunoID).get();
+            avaliacao = avaliacaoService.findById(avaliacaoID).get();
+            questoesRepostaGeral = selecionaQuestoesReposta(Categoria.AVALIACAO_GERAL_POS_GRADUACAO);
+            questoesRepostaProfessor = selecionaQuestoesReposta(Categoria.AVALIACAO_PROFESSOR_MODULO);
+            questoesRepostaConteudo = selecionaQuestoesReposta(Categoria.AVALIACAO_CONTEUDO_INFRA_ESTRUTUTA_MODULO);
+        }
     }
     
     private List<Resposta> selecionaQuestoesReposta(Categoria cat) {
