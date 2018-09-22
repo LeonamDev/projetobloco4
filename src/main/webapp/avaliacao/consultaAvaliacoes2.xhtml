@@ -40,10 +40,16 @@
                             <h:outputText value="Ações"/>
                         </f:facet>
                         <div style="display:flex;justify-content:center;align-items:center;">
-                            <p:commandButton icon="ui-icon-pencil" title="Editar"  
+<!--                            <p:commandButton icon="ui-icon-pencil" title="Editar"  
                                              action="#{avaliacaoBean.editar(avaliacao)}" />
                             <p:commandButton icon="ui-icon-trash" title="Remever"
+                                             action="#{avaliacaoBean.remover(avaliacao.id)}" />-->
+                            <h:commandButton value="Editar"
+                                             action="#{avaliacaoBean.editar(avaliacao)}" />
+                            &nbsp;
+                            <h:commandButton value="Remover"
                                              action="#{avaliacaoBean.remover(avaliacao.id)}" />
+                            &nbsp;
                             <p:commandButton title="CSV"
                                              action="#{export.download(model)}" />
                         </div>
