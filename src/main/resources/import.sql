@@ -24,7 +24,7 @@ INSERT INTO aluno(matricula, id, turma_id) VALUES("75676872", 8, 1);
 INSERT INTO aluno(matricula, id, turma_id) VALUES("83734809", 9, 1);
 INSERT INTO aluno(matricula, id, turma_id) VALUES("97403688", 10, 1);
 
-INSERT INTO email_abertura(link_avaliacao, texto) VALUES("http://localhost:8084/avaliacao/questionario","Segue o link para você realizar a avaliação");
+INSERT INTO email_abertura(link_avaliacao, texto) VALUES("http://localhost:8084/avaliacao/respostaAvaliacao.xhtml","Segue o link para você realizar a avaliação");
 
 INSERT INTO avaliacao(codigo_avaliacao,inicio_avaliacao,termino_avaliacao,turma_id, email_abertura_id, questionario_id) VALUES("15ASD45A","2018-05-08 17:33:35.133", "2018-10-08 17:33:35.133", 1, 1, 1);
 INSERT INTO avaliacao(codigo_avaliacao,inicio_avaliacao,termino_avaliacao,turma_id, email_abertura_id, questionario_id) VALUES("25ASD45A","2018-06-08 17:33:35.133", "2018-10-08 17:33:35.133", 1, 1, 1);
