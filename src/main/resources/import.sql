@@ -3,7 +3,7 @@ INSERT INTO bloco(codigo, nome, curso_id) VALUES("JAVAWEB","JAVA WEB E SERVICOS"
 INSERT INTO modulo(codigo, nome, bloco_id) VALUES ("SERVICOSJAVA", "SERVIÇOS COM TECNOLOGIA JAVA", 1);
 INSERT INTO turma(periodo_fim, periodo_inicio, modulo_id) VALUES('2018-08-09', '2019-08-09', 1);
 
-INSERT INTO pessoa(cpf,email, genero,nome) VALUES("29847771073","sistemadeavaliacaoinfnet@gmail.com", "M", "Steve Wozniak");  
+INSERT INTO pessoa(cpf,email, genero,nome) VALUES("29847771073","sistemadeavaliacaoinfnet2@gmail.com", "M", "Steve Wozniak");  
 INSERT INTO pessoa(cpf,email, genero,nome) VALUES("34235111094","sistemadeavaliacaoinfnet@gmail.com", "M", "Atuharz Anfigal");  
 INSERT INTO pessoa(cpf,email, genero,nome) VALUES("00219448060","sistemadeavaliacaoinfnet@gmail.com", "F", "Headan Bughfyeurn");  
 INSERT INTO pessoa(cpf,email, genero,nome) VALUES("76305634009","sistemadeavaliacaoinfnet@gmail.com", "F", "Pifuadak Narhe");  
@@ -73,15 +73,6 @@ INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 15);
 INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 16);
 INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 17);
 
-INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_TOTALMENTE", 1, 1, 1);
-INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_PARCIALMENTE", 1, 1, 2);
-INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("NAO_CONCORDO_NEM_DISCORDO", 1, 1, 3);
-INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("DISCORDO_PARCIALMENTE", 1, 1, 4);
-INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("SEM_RESPOSTA", 1, 1, 5);
-INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_TOTALMENTE", 1, 1, 6);
-INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_PARCIALMENTE", 1, 1, 7);
-INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_PARCIALMENTE", 1, 1, 8);
-INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("DISCORDO_TOTALMENTE", 1, 1, 9);
 
 INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_TOTALMENTE", 2, 1, 1);
 INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_PARCIALMENTE", 2, 1, 2);

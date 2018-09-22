@@ -54,16 +54,13 @@ public class RespostaBean implements Serializable {
         Long avaliacaoID = AvaliacaoTools.decrypt(idAvaliacao); 
 
         if (alunoService.StudentAlreadyAnswered(alunoID,avaliacaoID)){
-            FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage(null, new FacesMessage(
-               "Você já respondeu esta avaliação. Obrigado!"));
             try { 
                 FacesContext.getCurrentInstance()
                         .getExternalContext().redirect("notfound.xhtml");
             } catch (IOException ex) {
                 Logger.getLogger(RespostaBean.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }else{  
+        }else{   
             aluno = alunoService.findById(alunoID).get();
             avaliacao = avaliacaoService.findById(avaliacaoID).get();
             questoesRepostaGeral = selecionaQuestoesReposta(Categoria.AVALIACAO_GERAL_POS_GRADUACAO);
