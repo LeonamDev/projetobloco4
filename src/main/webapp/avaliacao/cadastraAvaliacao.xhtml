@@ -29,30 +29,30 @@
                     <p:inputMask id="fim" value="#{avaliacaoBean.avaliacao.terminoAvaliacao}" mask="99/99/9999 99:99" converter="#{localDateTimeConverter}" />
 
                     <p:outputLabel value="Turma" />
-                    <p:selectOneListbox id="turma" value="#{avaliacaoBean.avaliacao.turma}" filter="true" filterMatchMode="contains" converter="#{turmaConverter}">
+                    <p:selectOneListbox id="turma" style="width: 100%;" value="#{avaliacaoBean.avaliacao.turma}" filter="true" filterMatchMode="contains" converter="#{turmaConverter}">
                         <f:selectItems
                             value="#{avaliacaoBean.todasTurmas}"
                             var="turma"
                             itemValue="#{turma}"
-                            itemLabel="#{turma.id} - Turma"/>
+                            itemLabel="#{turma.id} - #{turma.modulo.nomeModulo}"/>
                     </p:selectOneListbox>
 
                     <p:outputLabel value="Email Abertura" />
-                    <p:selectOneListbox id="email" value="#{avaliacaoBean.avaliacao.emailAbertura}" filter="true" filterMatchMode="contains" converter="#{emailAberturaConverter}">
+                    <p:selectOneListbox id="email" style="width: 100%;" value="#{avaliacaoBean.avaliacao.emailAbertura}" filter="true" filterMatchMode="contains" converter="#{emailAberturaConverter}">
                         <f:selectItems
                             value="#{avaliacaoBean.todosEmails}"
                             var="email"
                             itemValue="#{email}"
-                            itemLabel="#{email.id} - Email"/>
+                            itemLabel="#{email.id}"/>
                     </p:selectOneListbox>
                     
                     <p:outputLabel value="Questionário" />
-                    <p:selectOneListbox id="questionario" value="#{avaliacaoBean.avaliacao.questionario}" filter="true" filterMatchMode="contains" converter="#{questionarioConverter}">
+                    <p:selectOneListbox id="questionario" style="width: 100%;" value="#{avaliacaoBean.avaliacao.questionario}" filter="true" filterMatchMode="contains" converter="#{questionarioConverter}">
                         <f:selectItems
                             value="#{avaliacaoBean.todosQuestionarios}"
                             var="questionario"
                             itemValue="#{questionario}"
-                            itemLabel="#{questionario.id} - Questionário"/>
+                            itemLabel="#{questionario.id} - #{questionario.identificador}"/>
                     </p:selectOneListbox>
 
                     <p:outputLabel value="Observações" />

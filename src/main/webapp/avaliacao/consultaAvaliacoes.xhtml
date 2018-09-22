@@ -47,15 +47,12 @@
                                              action="#{avaliacaoBean.remover(avaliacao.id)}" />
                             &nbsp;
                             <p:button value="CSV"
-                                           href="download2?id=#{avaliacao.id}" />
+                                      href="download2?id=#{avaliacao.id}"/>
                         </div>
                     </p:column>
                 </p:dataTable>
             </h:form>
         </div><br></br>
         <p:button outcome="/avaliacao/cadastraAvaliacao.xhtml" value="Criar"/>
-        &nbsp;
-                            <p:button value="CSV Completo"
-                                           href="download" />
     </ui:define>
 </ui:composition>

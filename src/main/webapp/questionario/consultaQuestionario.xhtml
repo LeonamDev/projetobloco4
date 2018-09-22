@@ -14,35 +14,37 @@
     <ui:define name="titulo">Avaliação</ui:define>
     <ui:define name="corpo">
         <div class="container">
-            <p:dataTable id="questionarios" var="questionario" value="#{questionarioBean.todosQuestionarios}">
-                
-                <p:column headerText="Id" style="width:5px;">
-                    <div style="display:flex;justify-content:center;align-items:center;">
-                        <h:outputText value="#{questionario.id}" />
-                    </div>
-                </p:column>
-                
-                <p:column headerText="Identificador" style="width:150px;">
-                    <h:outputText value="#{questionario.identificador}" />
-                </p:column>
-                
-                <p:column  style="width:30px;">
-                    <f:facet name="header">
-                        <h:outputText value="Ações"/>
-                    </f:facet>
-                    <div style="display:flex;justify-content:center;align-items:center;">
-                        <h:commandButton value="Listar"
-                                         action="#{questionarioBean.consultarQuestoesQuestionario(questionario)}" />
-                        &nbsp;
-                        <h:commandButton value="Editar"
-                                         action="#{questionarioBean.editar(questionario)}" />
-                        &nbsp;
-                        <h:commandButton value="Remover"
-                                         action="#{questtionarioBean.remover(questionario.id)}" />
-                    </div>
-                </p:column>
+            <h:form>
+                <p:dataTable id="questionarios" var="questionario" value="#{questionarioBean.todosQuestionarios}">
 
-            </p:dataTable>
+                    <p:column headerText="Id" style="width:5px;">
+                        <div style="display:flex;justify-content:center;align-items:center;">
+                            <h:outputText value="#{questionario.id}" />
+                        </div>
+                    </p:column>
+
+                    <p:column headerText="Identificador" style="width:150px;">
+                        <h:outputText value="#{questionario.identificador}" />
+                    </p:column>
+
+                    <p:column  style="width:30px;">
+                        <f:facet name="header">
+                            <h:outputText value="Ações"/>
+                        </f:facet>
+                        <div style="display:flex;justify-content:center;align-items:center;">
+                            <h:commandButton value="Listar"
+                                             action="#{questionarioBean.consultarQuestoesQuestionario(questionario)}" />
+                            &nbsp;
+                            <h:commandButton value="Editar"
+                                             action="#{questionarioBean.editar(questionario)}" />
+                            &nbsp;
+                            <h:commandButton value="Remover"
+                                             action="#{questtionarioBean.remover(questionario.id)}" />
+                        </div>
+                    </p:column>
+
+                </p:dataTable>
+            </h:form>
         </div><br></br>
         <p:button outcome="/questionario/cadastraQuestionario.xhtmll" value="Criar"/>
     </ui:define>    

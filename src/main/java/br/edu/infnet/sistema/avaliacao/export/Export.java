@@ -5,7 +5,11 @@
  */
 package br.edu.infnet.sistema.avaliacao.export;
 
+import br.edu.infnet.sistema.avaliacao.model.Resposta;
 import br.edu.infnet.sistema.avaliacao.service.RespostaService;
+import java.util.List;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,7 +39,12 @@ public class Export {
 
     @RequestMapping(value = "/avaliacao/download2", method = RequestMethod.GET)
     public String download(@RequestParam(value = "id", required = false) Long id, Model model) {
-        model.addAttribute("respostas", respostaService.findByIdAvaliacao(id));
+        
+        List<Resposta> respostas = respostaService.findByIdAvaliacao(id);
+        
+        if(!respostas.isEmpty()) {
+            model.addAttribute("respostas", respostas);
+        }
         return "";
     }
 }

@@ -26,11 +26,11 @@ INSERT INTO aluno(matricula, id, turma_id) VALUES("97403688", 10, 1);
 
 INSERT INTO email_abertura(link_avaliacao, texto) VALUES("http://localhost:8084/avaliacao/respostaAvaliacao.xhtml","Segue o link para você realizar a avaliação");
 
-INSERT INTO avaliacao(codigo_avaliacao,inicio_avaliacao,termino_avaliacao,turma_id, email_abertura_id, questionario_id) VALUES("15ASD45A","2018-05-08 17:33:35.133", "2018-10-08 17:33:35.133", 1, 1, 1);
-INSERT INTO avaliacao(codigo_avaliacao,inicio_avaliacao,termino_avaliacao,turma_id, email_abertura_id, questionario_id) VALUES("25ASD45A","2018-06-08 17:33:35.133", "2018-10-08 17:33:35.133", 1, 1, 1);
-INSERT INTO avaliacao(codigo_avaliacao,inicio_avaliacao,termino_avaliacao,turma_id, email_abertura_id, questionario_id) VALUES("35ASD45A","2018-07-08 17:33:35.133", "2018-10-08 17:33:35.133", 1, 1, 1);
-INSERT INTO avaliacao(codigo_avaliacao,inicio_avaliacao,termino_avaliacao,turma_id, email_abertura_id, questionario_id) VALUES("45ASD45A","2018-08-08 17:33:35.133", "2018-10-08 17:33:35.133", 1, 1, 1);
-INSERT INTO avaliacao(codigo_avaliacao,inicio_avaliacao,termino_avaliacao,turma_id, email_abertura_id, questionario_id) VALUES("55ASD45A","2018-09-08 17:33:35.133", "2018-10-08 17:33:35.133", 1, 1, 1);
+-- INSERT INTO avaliacao(codigo_avaliacao,inicio_avaliacao,termino_avaliacao,turma_id, email_abertura_id, questionario_id) VALUES("15ASD45A","2018-05-08 17:33:35.133", "2018-10-08 17:33:35.133", 1, 1, 1);
+-- INSERT INTO avaliacao(codigo_avaliacao,inicio_avaliacao,termino_avaliacao,turma_id, email_abertura_id, questionario_id) VALUES("25ASD45A","2018-06-08 17:33:35.133", "2018-10-08 17:33:35.133", 1, 1, 1);
+-- INSERT INTO avaliacao(codigo_avaliacao,inicio_avaliacao,termino_avaliacao,turma_id, email_abertura_id, questionario_id) VALUES("35ASD45A","2018-07-08 17:33:35.133", "2018-10-08 17:33:35.133", 1, 1, 1);
+-- INSERT INTO avaliacao(codigo_avaliacao,inicio_avaliacao,termino_avaliacao,turma_id, email_abertura_id, questionario_id) VALUES("45ASD45A","2018-08-08 17:33:35.133", "2018-10-08 17:33:35.133", 1, 1, 1);
+-- INSERT INTO avaliacao(codigo_avaliacao,inicio_avaliacao,termino_avaliacao,turma_id, email_abertura_id, questionario_id) VALUES("55ASD45A","2018-09-08 17:33:35.133", "2018-10-08 17:33:35.133", 1, 1, 1);
 
 INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_GERAL_POS_GRADUACAO", '2018-09-15', "1. O professor contribuiu para o meu aprendizado.");
 INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_GERAL_POS_GRADUACAO", '2018-09-15', "2. O professor é atencioso e esteve disponível para tirar dúvidas.");
@@ -74,12 +74,12 @@ INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 16);
 INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 17);
 
 
-INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_TOTALMENTE", 2, 1, 1);
-INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_PARCIALMENTE", 2, 1, 2);
-INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("NAO_CONCORDO_NEM_DISCORDO", 2, 1, 3);
-INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("DISCORDO_PARCIALMENTE", 2, 1, 4);
-INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("SEM_RESPOSTA", 2, 1, 5);
-INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_TOTALMENTE", 2, 1, 6);
-INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_PARCIALMENTE", 2, 1, 7);
-INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_PARCIALMENTE", 2, 1, 8);
-INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("DISCORDO_TOTALMENTE", 2, 1, 9);
+-- INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_TOTALMENTE", 2, 1, 1);
+-- INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_PARCIALMENTE", 2, 1, 2);
+-- INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("NAO_CONCORDO_NEM_DISCORDO", 2, 1, 3);
+-- INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("DISCORDO_PARCIALMENTE", 2, 1, 4);
+-- INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("SEM_RESPOSTA", 2, 1, 5);
+-- INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_TOTALMENTE", 2, 1, 6);
+-- INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_PARCIALMENTE", 2, 1, 7);
+-- INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("CONCORDO_PARCIALMENTE", 2, 1, 8);
+-- INSERT INTO resposta(grau_conformidade, aluno_id, avaliacao_id, questao_id) VALUES("DISCORDO_TOTALMENTE", 2, 1, 9);
