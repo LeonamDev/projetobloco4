@@ -27,14 +27,19 @@
                     <p:column headerText="Texto do Email" style="width:200px;">
                         <h:outputText value="#{emailAbertura.texto}" />
                     </p:column>
-                    <p:column  style="width:30px;">
+                    <p:column  style="width:50px;">
                         <f:facet name="header">
                             <h:outputText value="Ações"/>
                         </f:facet>
                         <div style="display:flex;justify-content:center;align-items:center;">
-                            <p:commandButton icon="ui-icon-pencil" title="Editar"  
+<!--                            <p:commandButton icon="ui-icon-pencil" title="Editar"  
                                              action="#{emailAberturaBean.editar(emailAbertura)}" />
                             <p:commandButton icon="ui-icon-trash" title="Remever"
+                                             action="#{emailAberturaBean.remover(emailAbertura.id)}" />-->
+                            <h:commandButton value="Editar"
+                                             action="#{emailAberturaBean.editar(emailAbertura)}" />
+                            &nbsp;
+                            <h:commandButton value="Remover"
                                              action="#{emailAberturaBean.remover(emailAbertura.id)}" />
                         </div>
                     </p:column>

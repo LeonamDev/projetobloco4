@@ -29,15 +29,22 @@
                             </h:outputText>
                         </div>
                     </p:column>
-                    <p:column  style="width:30px;">
+                    <p:column  style="width:50px;">
                         <f:facet name="header">
                             <h:outputText value="Ações"/>
                         </f:facet>
                         <div style="display:flex;justify-content:center;align-items:center;">
-                            <p:commandButton icon="ui-icon-pencil" title="Editar"  
+<!--                            <p:commandButton icon="ui-icon-pencil" title="Editar"  
                                              action="#{questaoBean.editar(questao)}" />
-                            <p:commandButton icon="ui-icon-trash" title="Remever"
+                            <p:commandButton icon="ui-icon-trash" title="Remover"
+                                             action="#{questaoBean.remover(questao.id)}" />-->
+
+                            <h:commandButton value="Editar"
+                                             action="#{questaoBean.editar(questao)}" />
+                            &nbsp;
+                            <h:commandButton value="Remover"
                                              action="#{questaoBean.remover(questao.id)}" />
+
                         </div>
                     </p:column>
                 </p:dataTable>
