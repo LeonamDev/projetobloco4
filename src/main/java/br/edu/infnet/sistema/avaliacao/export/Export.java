@@ -9,7 +9,6 @@ import br.edu.infnet.sistema.avaliacao.service.RespostaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,25 +20,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 //@RequestMapping(value = "/avaliacao/download", method = RequestMethod.GET)
 @Controller
 public class Export {
-  
-@Autowired
-RespostaService respostaService;
 
-/**
- * Handle request to download an Excel document
- */
-@RequestMapping(value = "/avaliacao/download", method = RequestMethod.GET)
-public String download(Model model) {
-        model.addAttribute("respostas", respostaService.findAll());
-        return "";
-}
+    @Autowired
+    RespostaService respostaService;
 
-  @RequestMapping(value = "/avaliacao/download2", method = RequestMethod.GET)
-    public String download (@RequestParam(value = "id",
-                                                   required = false)
-                                     Long id, Model model) {
+    /**
+     * Handle request to download an Excel document
+     */
+    @RequestMapping(value = "/avaliacao/download", method = RequestMethod.GET)
+    public String download(Model model) {
         model.addAttribute("respostas", respostaService.findAll());
         return "";
     }
 
+    @RequestMapping(value = "/avaliacao/download2", method = RequestMethod.GET)
+    public String download(@RequestParam(value = "id", required = false) Long id, Model model) {
+        model.addAttribute("respostas", respostaService.findByIdAvaliacao(id));
+        return "";
+    }
 }

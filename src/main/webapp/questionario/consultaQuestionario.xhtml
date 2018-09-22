@@ -31,11 +31,13 @@
                         <h:outputText value="Ações"/>
                     </f:facet>
                     <div style="display:flex;justify-content:center;align-items:center;">
-                        <p:commandButton icon=" ui-icon-document" title="Listar Questões"  
+                        <h:commandButton value="Listar"
                                          action="#{questionarioBean.consultarQuestoesQuestionario(questionario)}" />
-                        <p:commandButton icon="ui-icon-pencil" title="Editar"  
+                        &nbsp;
+                        <h:commandButton value="Editar"
                                          action="#{questionarioBean.editar(questionario)}" />
-                        <p:commandButton icon="ui-icon-trash" title="Remever"
+                        &nbsp;
+                        <h:commandButton value="Remover"
                                          action="#{questtionarioBean.remover(questionario.id)}" />
                     </div>
                 </p:column>
