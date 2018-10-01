@@ -97,7 +97,7 @@ public class RespostaBean implements Serializable {
         }
     }
     
-    public void insereRepostalistener(AjaxBehaviorEvent event) {
+    public void insereRepostaListener(AjaxBehaviorEvent event) {
         System.out.println(respostasForm);
         
         if(!respostasForm.equals("")) {
