@@ -29,13 +29,15 @@
                         <h:outputText value="#{questaoResposta.questao.descricaoQuestao}" />
                     </p:column>
                     <p:column>
-                        <p:selectOneMenu  style="width:250px" >
+                        <p:selectOneMenu id="selectGeral" value="#{respostaBean.respostasForm}" style="width:250px" required="true">
                             <f:selectItem itemLabel="" itemValue="" />
-                            <f:selectItem itemLabel="Concordo Totalmente" itemValue="#{questaoResposta.questao.id} - 0" />
-                            <f:selectItem itemLabel="Concordo" itemValue="#{questaoResposta.questao.id} - 1" />
-                            <f:selectItem itemLabel="Não Concordo nem Discordo" itemValue="#{questaoResposta.questao.id} - 2" />
-                            <f:selectItem itemLabel="Discordo Totalmente" itemValue="#{questaoResposta.questao.id} - 3" />
-                            <f:selectItem itemLabel="Não sei Avaliar" itemValue="#{questaoResposta.questao.id} - 4" />
+                            <f:selectItem itemLabel="Concordo Totalmente" itemValue="#{questaoResposta.questao.id};0" />
+                            <f:selectItem itemLabel="Concordo" itemValue="#{questaoResposta.questao.id};1" />
+                            <f:selectItem itemLabel="Não Concordo nem Discordo" itemValue="#{questaoResposta.questao.id};2" />
+                            <f:selectItem itemLabel="Discordo" itemValue="#{questaoResposta.questao.id};3" />
+                            <f:selectItem itemLabel="Discordo Totalmente" itemValue="#{questaoResposta.questao.id};4" />
+                            <f:selectItem itemLabel="Não sei Avaliar" itemValue="#{questaoResposta.questao.id};5" />
+                            <f:ajax listener="#{respostaBean.insereRepostalistener}"/>
                         </p:selectOneMenu>
                     </p:column>
                 </p:dataTable>
@@ -44,13 +46,15 @@
                         <h:outputText value="#{questaoResposta.questao.descricaoQuestao}" />
                     </p:column>
                     <p:column>
-                        <p:selectOneMenu  style="width:250px" >
-                             <f:selectItem itemLabel="" itemValue="" />
-                            <f:selectItem itemLabel="Concordo Totalmente" itemValue="#{questaoResposta.questao.id} - 0" />
-                            <f:selectItem itemLabel="Concordo" itemValue="#{questaoResposta.questao.id} - 1" />
-                            <f:selectItem itemLabel="Não Concordo nem Discordo" itemValue="#{questaoResposta.questao.id} - 2" />
-                            <f:selectItem itemLabel="Discordo Totalmente" itemValue="#{questaoResposta.questao.id} - 3" />
-                            <f:selectItem itemLabel="Não sei Avaliar" itemValue="#{questaoResposta.questao.id} - 4" />
+                        <p:selectOneMenu id="selectProfessor" value="#{respostaBean.respostasForm}" style="width:250px" required="true">
+                            <f:selectItem itemLabel="" itemValue="" />
+                            <f:selectItem itemLabel="Concordo Totalmente" itemValue="#{questaoResposta.questao.id};0" />
+                            <f:selectItem itemLabel="Concordo" itemValue="#{questaoResposta.questao.id};1" />
+                            <f:selectItem itemLabel="Não Concordo nem Discordo" itemValue="#{questaoResposta.questao.id};2" />
+                            <f:selectItem itemLabel="Discordo" itemValue="#{questaoResposta.questao.id};3" />
+                            <f:selectItem itemLabel="Discordo Totalmente" itemValue="#{questaoResposta.questao.id};4" />
+                            <f:selectItem itemLabel="Não sei Avaliar" itemValue="#{questaoResposta.questao.id};5" />
+                            <f:ajax listener="#{respostaBean.insereRepostalistener}"/>
                         </p:selectOneMenu>
                     </p:column>
                 </p:dataTable>
@@ -59,13 +63,15 @@
                         <h:outputText value="#{questaoResposta.questao.descricaoQuestao}" />
                     </p:column>
                     <p:column>
-                        <p:selectOneMenu  style="width:250px" >
+                        <p:selectOneMenu id="selectConteudo" value="#{respostaBean.respostasForm}" style="width:250px" required="true">
                             <f:selectItem itemLabel="" itemValue="" />
-                            <f:selectItem itemLabel="Concordo Totalmente" itemValue="#{questaoResposta.questao.id} - 0" />
-                            <f:selectItem itemLabel="Concordo" itemValue="#{questaoResposta.questao.id} - 1" />
-                            <f:selectItem itemLabel="Não Concordo nem Discordo" itemValue="#{questaoResposta.questao.id} - 2" />
-                            <f:selectItem itemLabel="Discordo Totalmente" itemValue="#{questaoResposta.questao.id} - 3" />
-                            <f:selectItem itemLabel="Não sei Avaliar" itemValue="#{questaoResposta.questao.id} - 4" />
+                            <f:selectItem itemLabel="Concordo Totalmente" itemValue="#{questaoResposta.questao.id};0" />
+                            <f:selectItem itemLabel="Concordo" itemValue="#{questaoResposta.questao.id};1" />
+                            <f:selectItem itemLabel="Não Concordo nem Discordo" itemValue="#{questaoResposta.questao.id};2" />
+                            <f:selectItem itemLabel="Discordo" itemValue="#{questaoResposta.questao.id};3" />
+                            <f:selectItem itemLabel="Discordo Totalmente" itemValue="#{questaoResposta.questao.id};4" />
+                            <f:selectItem itemLabel="Não sei Avaliar" itemValue="#{questaoResposta.questao.id};5" />
+                            <f:ajax listener="#{respostaBean.insereRepostalistener}"/>
                         </p:selectOneMenu>
                     </p:column>
                 </p:dataTable>

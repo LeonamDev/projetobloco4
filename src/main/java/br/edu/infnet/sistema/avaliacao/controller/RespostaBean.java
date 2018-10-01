@@ -2,6 +2,7 @@ package br.edu.infnet.sistema.avaliacao.controller;
 
 import br.edu.infnet.sistema.avaliacao.AvaliacaoTools;
 import br.edu.infnet.sistema.avaliacao.enuns.Categoria;
+import br.edu.infnet.sistema.avaliacao.enuns.GrauConformidadeLikert;
 import br.edu.infnet.sistema.avaliacao.model.Aluno;
 import br.edu.infnet.sistema.avaliacao.model.Avaliacao;
 import br.edu.infnet.sistema.avaliacao.model.Questao;
@@ -17,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.event.AjaxBehaviorEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -32,7 +34,7 @@ public class RespostaBean implements Serializable {
     List<Resposta> questoesRepostaGeral = new ArrayList<>();
     List<Resposta> questoesRepostaProfessor = new ArrayList<>();
     List<Resposta> questoesRepostaConteudo = new ArrayList<>();
-    List<Object> respostasForm = new ArrayList<>();
+    String respostasForm = "";
 
     @Autowired
     RespostaService respostaService;
@@ -43,8 +45,11 @@ public class RespostaBean implements Serializable {
 
     public void salvar() {
         FacesContext context = FacesContext.getCurrentInstance();
-        respostaService.save(this.resposta);
-        this.resposta = new Resposta();
+        
+        for(Resposta resposta : todasRespostas) {
+            respostaService.save(resposta);
+        }
+        
         context.addMessage(null, new FacesMessage(
                 "Resposta cadastrado com sucesso!"));
     }
@@ -80,6 +85,7 @@ public class RespostaBean implements Serializable {
                 resp.setAluno(aluno);
                 resp.setAvaliacao(avaliacao);
                 questoesResposta.add(resp);
+                todasRespostas.add(resp);
             }
         }
         
@@ -89,6 +95,24 @@ public class RespostaBean implements Serializable {
         else {
             return questoesResposta;
         }
+    }
+    
+    public void insereRepostalistener(AjaxBehaviorEvent event) {
+        System.out.println(respostasForm);
+        
+        if(!respostasForm.equals("")) {
+            String[] result = respostasForm.split(";");
+            Long idQuestao = new Long(result[0]);
+            Integer valueReposta = new Integer(result[1]);
+            
+            for(Resposta resposta : todasRespostas) {
+                if(resposta.getQuestao().getId() == idQuestao) {
+                    resposta.setGrauConformidade(GrauConformidadeLikert.valueOf(valueReposta).get());
+                }
+            }
+        }
+        
+        respostasForm = "";
     }
 
     public Avaliacao getAvaliacao() {
@@ -147,11 +171,11 @@ public class RespostaBean implements Serializable {
         this.questoesRepostaConteudo = questoesRepostaConteudo;
     }
 
-    public List<Object> getRespostasForm() {
+    public String getRespostasForm() {
         return respostasForm;
     }
 
-    public void setRespostasForm(List<Object> respostasForm) {
+    public void setRespostasForm(String respostasForm) {
         this.respostasForm = respostasForm;
     }
     
