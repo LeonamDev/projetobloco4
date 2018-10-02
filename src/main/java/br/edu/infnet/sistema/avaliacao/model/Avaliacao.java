@@ -42,6 +42,10 @@ public class Avaliacao {
     @Type(type = "org.hibernate.type.NumericBooleanType")
     public boolean enviado;
     
+    @Column(columnDefinition = "TINYINT default 0")
+    @Type(type = "org.hibernate.type.NumericBooleanType")
+    public boolean enviada_pro_coordenador;
+    
     @ManyToOne
     @JoinColumn (name="turma_id")
     private Turma turma;

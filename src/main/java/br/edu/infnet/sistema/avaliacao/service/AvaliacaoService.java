@@ -5,7 +5,6 @@ import br.edu.infnet.sistema.avaliacao.model.Avaliacao;
 import br.edu.infnet.sistema.avaliacao.model.EmailAbertura;
 import br.edu.infnet.sistema.avaliacao.model.Pessoa;
 import br.edu.infnet.sistema.avaliacao.repository.AvaliacaoRepository;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -32,6 +31,24 @@ public class AvaliacaoService {
             List<Long> avaliacoesIDs = avaliacaoRepository.findBySentEvaluation(alunosIDs);
             avaliacaoRepository.setEnviadoEqualTrue(avaliacoesIDs);
         }
+    }
+    
+    public void setEnviadaProCoordenadorEqualTrue(List<Long> avaliacaoesIds) {
+        if (avaliacaoesIds.size() > 0) {
+            avaliacaoRepository.setEnviadoProCoordenadorEqualTrue(avaliacaoesIds);
+        }
+    }
+    
+    public List<Long> findByValuationPeriodEnded(){
+        List<Long> avaliacoesIDs = new ArrayList<>();
+        List<Object> avaliacoes = avaliacaoRepository.findByValuationPeriodEnded(
+               AvaliacaoTools.getCurrentTime().toLocalDateTime());
+        
+        avaliacoes.stream().forEach(f -> {
+            avaliacoesIDs.add(Long.valueOf(f.toString()));
+        });
+        
+        return avaliacoesIDs;
     }
 
     public Optional<Avaliacao> findById(Long id) {
