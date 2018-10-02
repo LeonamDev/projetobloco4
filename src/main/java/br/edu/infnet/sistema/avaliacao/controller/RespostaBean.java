@@ -34,7 +34,7 @@ public class RespostaBean implements Serializable {
     List<Resposta> questoesRepostaGeral = new ArrayList<>();
     List<Resposta> questoesRepostaProfessor = new ArrayList<>();
     List<Resposta> questoesRepostaConteudo = new ArrayList<>();
-    boolean avaliacaoRespondida = true;
+    boolean avaliacaoSemReposta = true;
     String respostasForm = "";
 
     @Autowired
@@ -51,7 +51,7 @@ public class RespostaBean implements Serializable {
             respostaService.save(resposta);
         }
         
-        avaliacaoRespondida = false;
+        avaliacaoSemReposta = false;
         
         context.addMessage(null, new FacesMessage(
                 "Resposta cadastrada com sucesso!"));
@@ -174,12 +174,12 @@ public class RespostaBean implements Serializable {
         this.questoesRepostaConteudo = questoesRepostaConteudo;
     }
 
-    public boolean isAvaliacaoRespondida() {
-        return avaliacaoRespondida;
+    public boolean isAvaliacaoSemReposta() {
+        return avaliacaoSemReposta;
     }
 
-    public void setAvaliacaoRespondida(boolean avaliacaoRespondida) {
-        this.avaliacaoRespondida = avaliacaoRespondida;
+    public void setAvaliacaoSemReposta(boolean avaliacaoSemReposta) {
+        this.avaliacaoSemReposta = avaliacaoSemReposta;
     }
     
     public String getRespostasForm() {
