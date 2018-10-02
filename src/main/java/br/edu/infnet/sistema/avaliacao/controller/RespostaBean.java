@@ -57,8 +57,10 @@ public class RespostaBean implements Serializable {
     public void prepararCadastro(String idAluno, String idAvaliacao) {   
         Long alunoID = AvaliacaoTools.decrypt(idAluno);
         Long avaliacaoID = AvaliacaoTools.decrypt(idAvaliacao); 
+        
+        System.out.println(avaliacaoService.hasExpired(avaliacaoID));
 
-        if (alunoService.StudentAlreadyAnswered(alunoID,avaliacaoID)){
+        if (alunoService.StudentAlreadyAnswered(alunoID,avaliacaoID) || avaliacaoService.hasExpired(avaliacaoID)){
             try { 
                 FacesContext.getCurrentInstance()
                         .getExternalContext().redirect("notfound.xhtml");
