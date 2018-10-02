@@ -58,8 +58,6 @@ public class RespostaBean implements Serializable {
         Long alunoID = AvaliacaoTools.decrypt(idAluno);
         Long avaliacaoID = AvaliacaoTools.decrypt(idAvaliacao); 
         
-        System.out.println(avaliacaoService.hasExpired(avaliacaoID));
-
         if (alunoService.StudentAlreadyAnswered(alunoID,avaliacaoID) || avaliacaoService.hasExpired(avaliacaoID)){
             try { 
                 FacesContext.getCurrentInstance()
