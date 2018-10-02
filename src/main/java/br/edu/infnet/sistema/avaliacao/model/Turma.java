@@ -1,7 +1,6 @@
 package br.edu.infnet.sistema.avaliacao.model;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 
@@ -11,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -33,28 +31,20 @@ public class Turma {
     @JoinColumn(name = "modulo_id")
     private Modulo modulo;
     
-    @OneToMany(mappedBy = "turma")
-    private List<Aluno> alunos;
-    
     @ManyToOne
     @JoinColumn (name="professor_titular_id")
     private Professor professor;
     
-    @OneToMany(mappedBy = "turma")
-    private List<Avaliacao> avaliacoes;
-
     public Turma() {
 
     }
 
-    public Turma(long id, LocalDate periodoInicio, LocalDate periodoFim, Modulo modulo, List<Aluno> alunos, Professor professor, List<Avaliacao> avaliacoes) {
+    public Turma(long id, LocalDate periodoInicio, LocalDate periodoFim, Modulo modulo, Professor professor) {
         this.id = id;
         this.periodoInicio = periodoInicio;
         this.periodoFim = periodoFim;
         this.modulo = modulo;
-        this.alunos = alunos;
         this.professor = professor;
-        this.avaliacoes = avaliacoes;
     }      
     
     public long getId() {
@@ -80,14 +70,6 @@ public class Turma {
     public void setPeriodoFim(LocalDate periodoFim) {
         this.periodoFim = periodoFim;
     }
-
-    public List<Aluno> getAlunos() {
-        return alunos;
-    }
-
-    public void setAlunos(List<Aluno> alunos) {
-        this.alunos = alunos;
-    }
     
     public Modulo getModulo() {
         return modulo;
@@ -103,14 +85,6 @@ public class Turma {
 
     public void setProfessor(Professor professor) {
         this.professor = professor;
-    }
-
-    public List<Avaliacao> getAvaliacoes() {
-        return avaliacoes;
-    }
-
-    public void setAvaliacoes(List<Avaliacao> avaliacoes) {
-        this.avaliacoes = avaliacoes;
     }
     
     @Override

@@ -5,7 +5,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,9 +17,6 @@ public class Aluno extends Pessoa {
     @ManyToOne
     @JoinColumn(name = "turma_id")
     private Turma turma;
-    
-    @OneToMany(mappedBy = "aluno")
-    private List<Resposta> respostas;
 
     public Aluno() {
     }
@@ -29,7 +25,6 @@ public class Aluno extends Pessoa {
         super(id, nome, cpf, email);
         this.matricula = matricula;
         this.turma = turma;
-        this.respostas = respostas;
     }
     
     public String getMatricula() {
@@ -46,13 +41,5 @@ public class Aluno extends Pessoa {
 
     public void setTurma(Turma turma) {
         this.turma = turma;
-    }
-
-    public List<Resposta> getRespostas() {
-        return respostas;
-    }
-
-    public void setRespostas(List<Resposta> respostas) {
-        this.respostas = respostas;
     }
 }

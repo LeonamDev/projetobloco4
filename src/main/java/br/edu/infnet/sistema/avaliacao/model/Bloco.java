@@ -1,7 +1,5 @@
 package br.edu.infnet.sistema.avaliacao.model;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.Column;
 
 import javax.persistence.Entity;
@@ -10,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -27,9 +24,6 @@ public class Bloco {
     @Column(name="nome", nullable=false)
     private String nomeBloco;
 
-    @OneToMany(mappedBy = "bloco")
-    private List<Modulo> modulos = new ArrayList<>();
-
     @ManyToOne
     @JoinColumn(name = "curso_id")
     private Curso curso;
@@ -38,12 +32,11 @@ public class Bloco {
 
     }
 
-    public Bloco(long id, String codigoBloco, String nomeBloco, List<Modulo> modulos) {
+    public Bloco(long id, String codigoBloco, String nomeBloco) {
         super();
         this.id = id;
         this.codigoBloco = codigoBloco;
-        this.nomeBloco = nomeBloco;
-        this.modulos = modulos;
+        this.nomeBloco = nomeBloco;        
     }
 
     public long getId() {
@@ -69,15 +62,7 @@ public class Bloco {
     public void setNomeBloco(String nomeBloco) {
         this.nomeBloco = nomeBloco;
     }
-
-    public List<Modulo> getModulos() {
-        return modulos;
-    }
-
-    public void setModulos(List<Modulo> modulos) {
-        this.modulos = modulos;
-    }
-
+    
     public Curso getCurso() {
         return curso;
     }

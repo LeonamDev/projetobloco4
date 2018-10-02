@@ -1,7 +1,6 @@
 package br.edu.infnet.sistema.avaliacao.model;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 
@@ -11,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
@@ -44,9 +42,6 @@ public class Avaliacao {
     @Type(type = "org.hibernate.type.NumericBooleanType")
     public boolean enviado;
     
-    @OneToMany(mappedBy = "avaliacao")
-    private List<Resposta> respostas;
-    
     @ManyToOne
     @JoinColumn (name="turma_id")
     private Turma turma;
@@ -67,15 +62,14 @@ public class Avaliacao {
 
     public Avaliacao(long id, String codigoAvaliacao, String objetivoAvaliacao, 
             LocalDateTime inicioAvaliacao, LocalDateTime terminoAvaliacao, 
-            String observacoes, List<Resposta> respostas, Turma turma, Questionario questionario,
+            String observacoes, Turma turma, Questionario questionario,
             EmailAbertura emailAbertura) {
         this.id = id;
         this.codigoAvaliacao = codigoAvaliacao;
         this.objetivoAvaliacao = objetivoAvaliacao;
         this.inicioAvaliacao = inicioAvaliacao;
         this.terminoAvaliacao = terminoAvaliacao;
-        this.observacoes = observacoes;
-        this.respostas = respostas;
+        this.observacoes = observacoes;        
         this.turma = turma;
         this.questionario = questionario;
         this.emailAbertura = emailAbertura;
@@ -135,14 +129,6 @@ public class Avaliacao {
 
     public void setEnviado(boolean enviado) {
         this.enviado = enviado;
-    }
-
-    public List<Resposta> getRespostas() {
-        return respostas;
-    }
-
-    public void setRespostas(List<Resposta> respostas) {
-        this.respostas = respostas;
     }
     
     public Turma getTurma() {

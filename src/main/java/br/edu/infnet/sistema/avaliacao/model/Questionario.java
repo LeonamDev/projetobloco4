@@ -13,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -34,19 +33,15 @@ public class Questionario {
         inverseJoinColumns = { @JoinColumn(name = "questao_id") }
     )
     private List<Questao> questoes;
-    
-    @OneToMany(mappedBy = "questionario")
-    private List<Avaliacao> avaliacoes;
 
     public Questionario() {
 
     }
 
-    public Questionario(long id, String identificador, List<Questao> questoes, List<Avaliacao> avaliacoes) {
+    public Questionario(long id, String identificador, List<Questao> questoes) {
         this.id = id;
         this.identificador = identificador;
-        this.questoes = questoes;
-        this.avaliacoes = avaliacoes;
+        this.questoes = questoes;        
     }
 
     public long getId() {
@@ -71,14 +66,6 @@ public class Questionario {
 
     public void setQuestoes(List<Questao> questoes) {
         this.questoes = questoes;
-    }
-
-    public List<Avaliacao> getAvaliacoes() {
-        return avaliacoes;
-    }
-
-    public void setAvaliacoes(List<Avaliacao> avaliacoes) {
-        this.avaliacoes = avaliacoes;
     }
     
     @Override
