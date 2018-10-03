@@ -7,6 +7,7 @@ import br.edu.infnet.sistema.avaliacao.model.Turma;
 import br.edu.infnet.sistema.avaliacao.service.AvaliacaoService;
 import br.edu.infnet.sistema.avaliacao.service.EmailAberturaService;
 import br.edu.infnet.sistema.avaliacao.service.QuestionarioService;
+import br.edu.infnet.sistema.avaliacao.service.RespostaService;
 import br.edu.infnet.sistema.avaliacao.service.TurmaService;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -35,6 +36,8 @@ public class AvaliacaoBean implements Serializable {
     QuestionarioService questionarioService;
     @Autowired
     EmailAberturaService emailaberturaService;
+    @Autowired
+    RespostaService respostaService;
 
     public void consultar() {
         this.todasAvaliacoes = avaliacaoService.findAll();
@@ -71,6 +74,11 @@ public class AvaliacaoBean implements Serializable {
         this.todasTurmas = turmaService.findAll();
         this.todosQuestionarios = questionarioService.findAll();
         this.todosEmails = emailaberturaService.findAll();
+    }
+    
+    public boolean doAvaliacaoPossuiRespostas(Long idAvaliacao) {
+        
+        return !respostaService.findByIdAvaliacao(idAvaliacao).isEmpty();
     }
 
     public Avaliacao getAvaliacao() {

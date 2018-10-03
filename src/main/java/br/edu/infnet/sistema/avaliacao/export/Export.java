@@ -8,8 +8,6 @@ package br.edu.infnet.sistema.avaliacao.export;
 import br.edu.infnet.sistema.avaliacao.model.Resposta;
 import br.edu.infnet.sistema.avaliacao.service.RespostaService;
 import java.util.List;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

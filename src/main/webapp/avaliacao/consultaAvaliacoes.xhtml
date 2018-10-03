@@ -47,7 +47,7 @@
                                              action="#{avaliacaoBean.remover(avaliacao.id)}" />
                             &nbsp;
                             <p:button value="CSV"
-                                      href="download2?id=#{avaliacao.id}"/>
+                                      href="download2?id=#{avaliacao.id}" rendered="#{avaliacaoBean.doAvaliacaoPossuiRespostas(avaliacao.id)}"/>
                         </div>
                     </p:column>
                 </p:dataTable>
