@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
  */
 @Component    //Replaced the @ComponentScan annotation
 @EnableScheduling
-public class AV2RestMailWorker {
+public class AV2MailWorker {
 
     @Autowired
     private AV2MailService mailService;
