@@ -25,7 +25,6 @@ public class QuestionarioBean implements Serializable {
 
     public void consultar() {
         this.todosQuestionarios = questionarioService.findAll();
-
     }
 
     public void remover(Long id) {
@@ -38,19 +37,26 @@ public class QuestionarioBean implements Serializable {
     }
 
     public String editar(Questionario questionario) {
+        prepararCadastro();
         this.questionario = questionario;
-        return "CadastraQuestionario.xhtml";
+        return "/questionario/cadastraQuestionario.xhtml";
 
     }
 
     public void salvar() {
 
+        long id = questionario.getId();
         FacesContext context = FacesContext.getCurrentInstance();
-        questionarioService.save(this.questionario);
-        this.questionario = new Questionario();
-        context.addMessage(null, new FacesMessage(
-                "Questionario cadastrado com sucesso!"));
-
+        
+        if ((questionario.getIdentificador() == null) || (questionario.getIdentificador().equals(""))){
+            context.addMessage(null, new FacesMessage(
+                "Campo Identificador do Questionário é de preenchimento obrigatorio."));
+        } else {
+            questionarioService.save(this.questionario);
+            this.questionario = new Questionario();
+            context.addMessage(null, new FacesMessage(
+                 "Questionáio cadastrado com sucesso!"));
+        }        
     }
 
     public void prepararCadastro() {
@@ -80,5 +86,9 @@ public class QuestionarioBean implements Serializable {
         return todasQuestoesQuestionario;
     }
 
+    public String voltar() {
+        this.consultar();
+        return "/questionario/consultaQuestionarios.xhtml";
+    }
     
 }

@@ -11,7 +11,7 @@
         <f:viewAction action="#{questionarioBean.listarQuestoesQuestionario(questionario)}"></f:viewAction>"
     </f:metadata>
 
-    <ui:define name="titulo">Lista de Questoes Questionario</ui:define>
+    <ui:define name="titulo">Lista de Questões de Questionário</ui:define>
     <ui:define name="corpo">
         <div class="container">
             <p:dataTable id="questoes" var="questao" value="#{questionarioBean.todasQuestoesQuestionario}">
@@ -29,6 +29,7 @@
                     </div>
                 </p:column>
             </p:dataTable>
+        </div>
     </ui:define>    
 </ui:composition>
 

@@ -45,11 +45,27 @@ public class QuestaoBean implements Serializable {
 
         long id = questao.getId();
         FacesContext context = FacesContext.getCurrentInstance();
-        questao.setDataCriacao(LocalDate.now());
-        questaoService.save(this.questao);
-        this.questao = new Questao();
-        context.addMessage(null, new FacesMessage(
-                "Questão cadastrada com sucesso!"));
+        
+        if (((questao.getDescricaoQuestao() == null) || (("".equals(questao.getDescricaoQuestao())))) &&
+             (questao.getCategoria()== null)) {
+            context.addMessage(null, new FacesMessage(
+                "Campos Descrição e Categoria são de preenchimento obrigatorio."));
+        } else if (((questao.getDescricaoQuestao() == null) || (("".equals(questao.getDescricaoQuestao())))) &&
+             (questao.getCategoria()!= null)) {
+            context.addMessage(null, new FacesMessage(
+                "Campo Descrição é de preenchimento obrigatorio."));
+        } else if (((questao.getDescricaoQuestao() != null) || ((!"".equals(questao.getDescricaoQuestao())))) &&
+             (questao.getCategoria()== null)){
+            context.addMessage(null, new FacesMessage(
+                "Campo Categoria é de preenchimento obrigatorio."));
+        } else {
+            questao.setDataCriacao(LocalDate.now());
+            questaoService.save(this.questao);
+            this.questao = new Questao();
+            context.addMessage(null, new FacesMessage(
+                    "Questão cadastrada com sucesso!"));
+        }
+
     }
 
     public void prepararCadastro() {
@@ -71,6 +87,11 @@ public class QuestaoBean implements Serializable {
 
     public Categoria[] getCategorias() {
         return Categoria.values();
+    }
+
+    public String voltar() {
+        this.consultar();
+        return "/questao/consultaQuestoes.xhtml";
     }
     
 }

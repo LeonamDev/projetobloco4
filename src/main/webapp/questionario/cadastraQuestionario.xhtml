@@ -18,9 +18,8 @@
                 <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
                     <h:outputLabel for="identificador" value="Identificador" />
                     <p:inputText value="#{questionarioBean.questionario.identificador}"  />
-
                     <h:commandButton value="Salvar" action="#{questionarioBean.salvar()}" />
-                 
+                    <h:commandButton value="Voltar" action="#{questionarioBean.voltar()}" />
                 </h:panelGrid>
             </h:form>
         </div>

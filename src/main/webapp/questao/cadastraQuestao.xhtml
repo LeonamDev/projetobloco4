@@ -7,7 +7,7 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
     <f:metadata>
-        <f:viewAction action="#{avaliacaoBean.prepararCadastro}" />
+        <f:viewAction action="#{questaoBean.prepararCadastro}" />
     </f:metadata>
     <ui:define name="titulo">Cadastro de Questões</ui:define>
     <ui:define name="corpo">
@@ -17,19 +17,20 @@
                 <h3>Questão</h3>
                 <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
                     <h:outputLabel for="descricaoQuestao" value="Descrição" />
-                    <p:inputTextarea rows="3" cols="33" value="#{questaoBean.questao.descricaoQuestao}"  />
+                    <p:inputTextarea rows="3" cols="33" value="#{questaoBean.questao.descricaoQuestao}" />
                     <h:outputLabel for="categotia" value="Categoria" />
                     <h:selectOneMenu
                         value="#{questaoBean.questao.categoria}"  
-                        label="Categoria">
+                        label="Categoria" >
                         <f:selectItem
                             itemLabel="Selecione" noSelectionOption="true" />
                         <f:selectItems 
                             value="#{questaoBean.categorias}"
                             var="categoria" 
-                            itemValue="#{categoria}"/>
+                            itemValue="#{categoria}" />
                     </h:selectOneMenu>
                     <h:commandButton value="Salvar" action="#{questaoBean.salvar()}" />
+                    <h:commandButton value="Voltar" action="#{questaoBean.voltar()}" />
                 </h:panelGrid>
             </h:form>
         </div>
