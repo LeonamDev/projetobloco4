@@ -35,25 +35,25 @@ INSERT INTO email_abertura(link_avaliacao, texto) VALUES("http://localhost:8084/
 INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_GERAL_POS_GRADUACAO", '2018-09-15', "1. O professor contribuiu para o meu aprendizado.");
 INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_GERAL_POS_GRADUACAO", '2018-09-15', "2. O professor é atencioso e esteve disponível para tirar dúvidas.");
 INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_GERAL_POS_GRADUACAO", '2018-09-15', "3. O professor aproveitou bem o tempo em sala de aula.");
-INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_GERAL_POS_GRADUACAO", '2018-09-15', "4. O professor utilizou o Moodle e outros recursos didáticos para ajudar nome");
+INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_GERAL_POS_GRADUACAO", '2018-09-15', "4. O professor utilizou o Moodle e outros recursos didaticos para ajudar nome");
 INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_GERAL_POS_GRADUACAO", '2018-09-15', "5. O professor aproveitou bem os recursos da sala de aula.");
-INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_GERAL_POS_GRADUACAO", '2018-09-15', "6. Gostaria de cursar outros módulos com esse professor.");   
+INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_GERAL_POS_GRADUACAO", '2018-09-15', "6. Gostaria de cursar outros modulos com esse professor.");   
 INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_PROFESSOR_MODULO", '2018-09-15', "1. O professor contribuiu para o meu aprendizado.");
-INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_PROFESSOR_MODULO", '2018-09-15', "2. O professor é atencioso e esteve disponível para tirar dúvidas.");
+INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_PROFESSOR_MODULO", '2018-09-15', "2. O professor é atencioso e esteve disponível para tirar duvidas.");
 INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_PROFESSOR_MODULO", '2018-09-15', "3. O professor aproveitou bem o tempo em sala de aula.");
-INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_PROFESSOR_MODULO", '2018-09-15', "4. O professor utilizou o Moodle e outros recursos didáticos para ajudar no meu aprendizad");
+INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_PROFESSOR_MODULO", '2018-09-15', "4. O professor utilizou o Moodle e outros recursos didaticos para ajudar no meu aprendizad");
 INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_PROFESSOR_MODULO", '2018-09-15', "5. O professor aproveitou bem os recursos da sala de aula.");
 INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_PROFESSOR_MODULO", '2018-09-15', "6. Gostaria de cursar outros módulos com esse professor.");
-INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_CONTEUDO_INFRA_ESTRUTUTA_MODULO", '2018-09-15', "1. Eu adquiri as competências propostas para o módulo.");
-INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_CONTEUDO_INFRA_ESTRUTUTA_MODULO", '2018-09-15', "2. O módulo foi útil para o meu crescimento profissional.");
-INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_CONTEUDO_INFRA_ESTRUTUTA_MODULO", '2018-09-15', "3. A carga horária do módulo foi apropriada.");
-INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_CONTEUDO_INFRA_ESTRUTUTA_MODULO", '2018-09-15', "4. O acervo da biblioteca atendeu as necessidades desse módulo.");
-INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_CONTEUDO_INFRA_ESTRUTUTA_MODULO", '2018-09-15', "5. A configuração do(s) computadore(s) e equipamentos da sala de aula e a qualidade do suporte foi apropriada.");
+INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_CONTEUDO_INFRA_ESTRUTUTA_MODULO", '2018-09-15', "1. Eu adquiri as competências propostas para o modulo.");
+INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_CONTEUDO_INFRA_ESTRUTUTA_MODULO", '2018-09-15', "2. O módulo foi util para o meu crescimento profissional.");
+INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_CONTEUDO_INFRA_ESTRUTUTA_MODULO", '2018-09-15', "3. A carga horária do modulo foi apropriada.");
+INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_CONTEUDO_INFRA_ESTRUTUTA_MODULO", '2018-09-15', "4. O acervo da biblioteca atendeu as necessidades desse modulo.");
+INSERT INTO questao(categoria, data_criacao, descricao) VALUES("AVALIACAO_CONTEUDO_INFRA_ESTRUTUTA_MODULO", '2018-09-15', "5. A configuracao do(s) computadore(s) e equipamentos da sala de aula e a qualidade do suporte foi apropriada.");
 
-INSERT INTO questionario(identificador) VALUES("Avaliação - Alunos da Graduação");
-INSERT INTO questionario(identificador) VALUES("Avaliação - Alunos da Pós-Graduação");
-INSERT INTO questionario(identificador) VALUES("Avaliação - Alunos da Extensão");
-INSERT INTO questionario(identificador) VALUES("Avaliação - Alunos do Politécnico");
+INSERT INTO questionario(identificador) VALUES("Avaliação - Alunos da Graduacao");
+INSERT INTO questionario(identificador) VALUES("Avaliação - Alunos da Pos-Graduacao");
+INSERT INTO questionario(identificador) VALUES("Avaliação - Alunos da Extensao");
+INSERT INTO questionario(identificador) VALUES("Avaliação - Alunos do Politecnico");
 
 INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 1);
 INSERT INTO questionario_questao(questionario_id, questao_id) VALUES(1, 2);

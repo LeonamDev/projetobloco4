@@ -1,7 +1,6 @@
 package br.edu.infnet.sistema.avaliacao.controller;
 
 import br.edu.infnet.sistema.avaliacao.model.EmailAbertura;
-import br.edu.infnet.sistema.avaliacao.model.Questao;
 import br.edu.infnet.sistema.avaliacao.service.EmailAberturaService;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -46,11 +45,28 @@ public class EmailAberturaBean implements Serializable {
     public void salvar() {
 
         FacesContext context = FacesContext.getCurrentInstance();
-        emailAberturaService.save(this.emailAbertura);
-        this.emailAbertura = new EmailAbertura();
-        context.addMessage(null, new FacesMessage(
-                "Questão cadastrada com sucesso!"));
-
+        
+        if (((emailAbertura.getLinkAvaliacao() == null) || ("".equals(emailAbertura.getLinkAvaliacao()))) &&
+           ((emailAbertura.getTexto() == null) || ("".equals(emailAbertura.getTexto())))) {
+            context.addMessage(null, new FacesMessage(
+                "Campos Link da Avaliação e Texto do Email são de preenchimento obrigatorio."));
+        } else if (((emailAbertura.getLinkAvaliacao() == null) || ("".equals(emailAbertura.getLinkAvaliacao()))) &&
+           ((emailAbertura.getTexto() != null) || !("".equals(emailAbertura.getTexto())))) { 
+            context.addMessage(null, new FacesMessage(
+                "Campo Link da Avaliação é de preenchimento obrigatorio."));
+        } else if (((emailAbertura.getLinkAvaliacao() != null) || !("".equals(emailAbertura.getLinkAvaliacao()))) &&
+           ((emailAbertura.getTexto() == null) || ("".equals(emailAbertura.getTexto())))){
+            context.addMessage(null, new FacesMessage(
+                "Campo Texto do Email é de preenchimento obrigatorio."));
+        } else {
+            emailAberturaService.save(this.emailAbertura);
+            this.emailAbertura = new EmailAbertura();
+            context.addMessage(null, new FacesMessage(
+                    "EmailAbertura cadastrado com sucesso!"));
+        }
+        
+        
+        
     }
 
     public void prepararCadastro() {
@@ -69,5 +85,10 @@ public class EmailAberturaBean implements Serializable {
     public List<EmailAbertura> getTodosEmailsAbertura() {
         return todosEmailsAbertura;
     }
-   
+
+    public String voltar() {
+        this.consultar();
+        return "/emailAbertura/consultaEmailAbertura.xhtml";
+    }
+  
 }

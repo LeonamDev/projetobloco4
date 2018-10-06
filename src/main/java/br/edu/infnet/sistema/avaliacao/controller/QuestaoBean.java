@@ -43,7 +43,7 @@ public class QuestaoBean implements Serializable {
 
     public void salvar() {
 
-        long id = questao.getId();
+        //long id = questao.getId();
         FacesContext context = FacesContext.getCurrentInstance();
         
         if (((questao.getDescricaoQuestao() == null) || (("".equals(questao.getDescricaoQuestao())))) &&

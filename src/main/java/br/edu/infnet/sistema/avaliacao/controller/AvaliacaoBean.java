@@ -157,4 +157,10 @@ public class AvaliacaoBean implements Serializable {
         return "download";
   
     }
+
+    public String voltar() {
+        this.consultar();
+        return "/avaliacao/consultaAvaliacoes.xhtml";
+    }
+
 }
