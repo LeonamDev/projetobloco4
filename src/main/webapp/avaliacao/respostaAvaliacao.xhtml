@@ -21,7 +21,7 @@
             <br/><br/>
             <h:outputText rendered="#{respostaBean.avaliacaoSemReposta}" 
                           value="Por favor, preencha essa avaliação com toda atenção. Ela é muito importante para a melhoria contínua de seu curso. É através das avaliações
-                                 que poderemos construir um curso cada vez melhor, o que é importante para você agora e para o valor de seu diploma no futuro."/>
+                          que poderemos construir um curso cada vez melhor, o que é importante para você agora e para o valor de seu diploma no futuro."/>
             <br/><br/>
             <h:form>
                 <p:messages/>
@@ -76,6 +76,9 @@
                         </p:selectOneMenu>
                     </p:column>
                 </p:dataTable>
+                <br></br>
+                <h:outputText value="Você tem comentários e sugestões?" rendered="#{respostaBean.avaliacaoSemReposta}"/>
+                <p:inputTextarea rows="10" cols="115" value="#{respostaBean.avaliacao.observacoes}" rendered="#{respostaBean.avaliacaoSemReposta}"/><br></br>
                 <h:commandButton rendered="#{respostaBean.avaliacaoSemReposta}" value="Salvar" action="#{respostaBean.salvar()}" />
             </h:form>
         </div>

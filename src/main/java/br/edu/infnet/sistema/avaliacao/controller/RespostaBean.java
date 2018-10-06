@@ -50,7 +50,7 @@ public class RespostaBean implements Serializable {
         for(Resposta resposta : todasRespostas) {
             respostaService.save(resposta);
         }
-        
+        avaliacaoService.save(avaliacao);
         avaliacaoSemReposta = false;
         
         context.addMessage(null, new FacesMessage(
